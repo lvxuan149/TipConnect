@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const base = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 async function check(path: string) {
@@ -7,7 +5,8 @@ async function check(path: string) {
     const res = await fetch(base + path);
     console.log(path, res.status, await res.text().catch(() => ''));
   } catch (error) {
-    console.log(path, 'ERROR', error.message);
+    const message = error instanceof Error ? error.message : String(error);
+    console.log(path, 'ERROR', message);
   }
 }
 
