@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/(public)/discover/page": "app/(public)/discover/page.js",
+  "/api/discover/route": "app/api/discover/route.js",
+  "/api/overview/route": "app/api/overview/route.js",
+  "/(public)/creators/page": "app/(public)/creators/page.js",
+  "/api/creators/route": "app/api/creators/route.js"
+}

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1761323465132,
+      "tag": "0000_black_ultimates",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1761326031959,
+      "tag": "0001_minor_ezekiel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1761331710649,
+      "tag": "0002_cloudy_the_renegades",
+      "breakpoints": true
+    }
+  ]
+}
