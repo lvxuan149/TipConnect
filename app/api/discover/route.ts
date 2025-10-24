@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { stories, hosts, events } from "@/drizzle/schema";
 
+export const runtime = 'edge';
+
 interface DiscoverQueryParams {
   limit?: string;
   offset?: string;
@@ -13,8 +15,9 @@ export async function GET(request: Request) {
   const startTime = Date.now();
 
   try {
-    // Parse query parameters
-    const { searchParams } = new URL(request.url);
+    // Parse query parameters - use fallback URL to avoid static generation issues
+    const url = new URL(request.url || 'http://localhost:3000/api/discover');
+    const searchParams = url.searchParams;
     const limit = Math.min(Number(searchParams.get('limit') || '20'), 100);
     const offset = Math.max(Number(searchParams.get('offset') || '0'), 0);
     const sort = searchParams.get('sort') as DiscoverQueryParams['sort'] || 'trending';
@@ -72,7 +75,7 @@ export async function GET(request: Request) {
         case 'trending':
           return b.trending_score - a.trending_score;
         case 'newest':
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+          return (b.created_at ? new Date(b.created_at).getTime() : 0) - (a.created_at ? new Date(a.created_at).getTime() : 0);
         case 'total_sol':
           return b.metrics.total_sol - a.metrics.total_sol;
         default:

@@ -8,7 +8,7 @@ export interface HostMetricsData {
   unique_supporters: number;
   share_count: number;
   stories_count: number;
-  updated_at: Date;
+  updated_at: Date | null;
 }
 
 export async function refreshHostMetrics(): Promise<{
@@ -57,7 +57,7 @@ export async function refreshHostMetrics(): Promise<{
       }
 
       // Get events for this host's stories using inArray (only if storyIds is not empty)
-      let hostEvents = [];
+      let hostEvents: any[] = [];
       if (storyIds.length > 0) {
         hostEvents = await db
           .select()
@@ -147,9 +147,25 @@ export async function getHostMetrics(hostId: string): Promise<HostMetricsData | 
     .where(eq(hostMetrics.host_id, hostId))
     .limit(1);
 
-  return result[0] || null;
+  const data = result[0];
+  if (!data) return null;
+
+  return {
+    ...data,
+    total_tip_value_sol: Number(data.total_tip_value_sol || 0),
+    unique_supporters: Number(data.unique_supporters || 0),
+    share_count: Number(data.share_count || 0),
+    stories_count: Number(data.stories_count || 0),
+  };
 }
 
 export async function getAllHostMetrics(): Promise<HostMetricsData[]> {
-  return await db.select().from(hostMetrics);
+  const results = await db.select().from(hostMetrics);
+  return results.map(data => ({
+    ...data,
+    total_tip_value_sol: Number(data.total_tip_value_sol || 0),
+    unique_supporters: Number(data.unique_supporters || 0),
+    share_count: Number(data.share_count || 0),
+    stories_count: Number(data.stories_count || 0),
+  }));
 }

@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": ">=18.18 <=20.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "eslint .",
     "dev:up": "tsx scripts/diagnose.ts && drizzle-kit generate && drizzle-kit migrate && tsx scripts/seed.ts && next dev",
     "test": "vitest -r",

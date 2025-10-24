@@ -5,10 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import { GlowCard, Section, Button } from '@/components/ui/GlowCard';
 import { Sidebar, MobileActionPicker } from './ui/Sidebar';
 import type { ActionKey } from './ui/actionTypes';
+import { Suspense } from 'react';
 
 const fetcher = (u: string) => fetch(u).then(r => r.json());
 
-export default function DiscoverPage() {
+function DiscoverContent() {
   const sp = useSearchParams();
   const actionType = (sp.get('actionType') as ActionKey) || 'all';
 
@@ -86,5 +87,21 @@ export default function DiscoverPage() {
         </div>
       </Section>
     </div>
+  );
+}
+
+export default function DiscoverPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-radial-mask">
+        <Section title="Discover" desc="Stories worth amplifying with on-chain gratitude.">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-white/60">Loading...</div>
+          </div>
+        </Section>
+      </div>
+    }>
+      <DiscoverContent />
+    </Suspense>
   );
 }

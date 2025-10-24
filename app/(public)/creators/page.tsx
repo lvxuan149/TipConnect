@@ -5,10 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import { GlowCard, Section, Button } from '@/components/ui/GlowCard';
 import { Sidebar, MobileFocusPicker } from './ui/Sidebar';
 import type { FocusKey } from './ui/categories';
+import { Suspense } from 'react';
 
 const fetcher = (u: string) => fetch(u).then(r => r.json());
 
-export default function CreatorsPage() {
+function CreatorsContent() {
   const sp = useSearchParams();
   const focus = (sp.get('focus') as FocusKey) || 'all';
 
@@ -101,5 +102,21 @@ export default function CreatorsPage() {
         </div>
       </Section>
     </div>
+  );
+}
+
+export default function CreatorsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-radial-mask">
+        <Section title="Creators" desc="Browse creators by focus area.">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-white/60">Loading...</div>
+          </div>
+        </Section>
+      </div>
+    }>
+      <CreatorsContent />
+    </Suspense>
   );
 }

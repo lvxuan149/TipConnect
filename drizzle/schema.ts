@@ -22,7 +22,7 @@ export const events = pgTable("events", {
   receiver: varchar("receiver", { length: 128 }).notNull(),
   amount: numeric("amount", { precision: 18, scale: 9 }).default("0"),
   tx_signature: varchar("tx_signature", { length: 128 }).notNull(),
-  story_id: varchar("story_id", { length: 64 }).notNull(),
+  story_id: varchar("story_id", { length: 64 }),
   timestamp: bigint("timestamp", { mode: "number" }).notNull()
 }, (t) => ({
   byTxType: uniqueIndex("uniq_tx_type").on(t.tx_signature, t.type),

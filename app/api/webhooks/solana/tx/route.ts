@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     type: String(body.type ?? ""),
     signer: String(body.signer ?? ""),
     receiver: String(body.receiver ?? ""),
-    amount: Number(body.amount ?? 0),
+    amount: String(Number(body.amount ?? 0)),
     story_id: body.storyId ? String(body.storyId) : null,
     timestamp: Number(body.timestamp ?? Date.now())
   };

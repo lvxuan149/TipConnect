@@ -26,7 +26,7 @@ export async function GET(
     const hostStoryIds = hostStories.map(s => s.id);
 
     // Filter events for this host's stories
-    const hostEvents = allEvents.filter(e => hostStoryIds.includes(e.story_id));
+    const hostEvents = allEvents.filter(e => e.story_id && hostStoryIds.includes(e.story_id));
 
     // Aggregate metrics
     let totalSol = 0;

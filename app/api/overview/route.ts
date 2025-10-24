@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
 
+export const runtime = 'edge';
+
 export async function GET() {
   const start = Date.now();
   try {

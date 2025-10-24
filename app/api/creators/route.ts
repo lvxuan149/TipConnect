@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { hosts, events, stories } from "@/drizzle/schema";
 
+export const runtime = 'edge';
+
 export async function GET() {
   try {
     // Get all hosts, stories, and events for aggregation
