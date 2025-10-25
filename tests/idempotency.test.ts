@@ -11,7 +11,7 @@ describe("idempotency", () => {
       type: "tip",
       signer: "Bob",
       receiver: "HostA",
-      amount: 2.0,
+      amount: "2.0",
       story_id: "story-1",
       timestamp: Date.now()
     }).onConflictDoNothing();
