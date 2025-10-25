@@ -1,0 +1,20 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(authed)/story/mine/page": "app/(authed)/story/mine/page.js",
+  "/(authed)/blinks/create/page": "app/(authed)/blinks/create/page.js",
+  "/(public)/creators/[id]/page": "app/(public)/creators/[id]/page.js",
+  "/(public)/discover/page": "app/(public)/discover/page.js",
+  "/(public)/story/[id]/page": "app/(public)/story/[id]/page.js",
+  "/api/creators/[id]/stories/route": "app/api/creators/[id]/stories/route.js",
+  "/api/ops/replay/route": "app/api/ops/replay/route.js",
+  "/(public)/creators/page": "app/(public)/creators/page.js",
+  "/api/webhooks/solana/tx/route": "app/api/webhooks/solana/tx/route.js",
+  "/api/creators/[id]/route": "app/api/creators/[id]/route.js",
+  "/(public)/activity/[txSig]/page": "app/(public)/activity/[txSig]/page.js",
+  "/page": "app/page.js",
+  "/(authed)/story/create/page": "app/(authed)/story/create/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/api/overview/route": "app/api/overview/route.js",
+  "/api/creators/route": "app/api/creators/route.js",
+  "/api/discover/route": "app/api/discover/route.js"
+}
