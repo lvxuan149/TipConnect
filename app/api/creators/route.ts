@@ -59,26 +59,15 @@ export async function GET() {
         stories_count: 0
       };
 
-      // Extract avatar_url and headline from web2_links if available
-      let avatar_url = "";
-      let headline = `${metrics.stories_count} stories`;
-
-      try {
-        const web2Links = JSON.parse(host.web2_links || "[]");
-        if (Array.isArray(web2Links) && web2Links.length > 0) {
-          avatar_url = web2Links[0].avatar_url || "";
-          headline = web2Links[0].headline || headline;
-        }
-      } catch (e) {
-        // Fallback to default values if JSON parsing fails
-      }
-
       return {
         id: host.id,
         name: host.name,
-        avatar_url,
-        headline,
-        total_sol: metrics.total_sol / 1e9 // Convert from lamports to SOL
+        avatar_url: host.avatar_url || "",
+        headline: host.headline || `${metrics.stories_count} stories`,
+        total_sol: metrics.total_sol / 1e9, // Convert from lamports to SOL
+        supporters: metrics.supporters.size,
+        shares: metrics.shares,
+        stories_count: metrics.stories_count
       };
     }).sort((a, b) => b.total_sol - a.total_sol);
 

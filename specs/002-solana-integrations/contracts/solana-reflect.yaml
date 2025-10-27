@@ -1,0 +1,311 @@
+openapi: 3.0.3
+info:
+  title: TipConnect Solana Verification & Reflect Payout API
+  version: 0.1.0
+  description: >
+    Contracts for Phase 2 integrations covering Solana webhook verification,
+    Reflect stablecoin payouts, and payout status retrieval.
+servers:
+  - url: https://app.tipconnect.xyz
+    description: Production
+  - url: http://localhost:3000
+    description: Development
+paths:
+  /api/webhooks/solana/tx:
+    post:
+      summary: Ingest a Solana tip transaction.
+      description: >
+        Accepts signed Solana tip events. Validates shared secret, then enqueues
+        verification against Helius before persisting. Returns synchronous acknowledgement.
+      operationId: ingestSolanaTip
+      tags: [Solana]
+      parameters:
+        - $ref: '#/components/parameters/WebhookSecret'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SolanaTipPayload'
+      responses:
+        '202':
+          description: Accepted for verification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookAccepted'
+        '401':
+          description: Missing or invalid webhook secret
+        '422':
+          description: Payload malformed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/reflect/payouts:
+    post:
+      summary: Trigger Reflect payout for a verified tip.
+      description: >
+        Creates or idempotently reuses a Reflect payout once verification succeeds.
+      operationId: createReflectPayout
+      tags: [Reflect]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReflectPayoutRequest'
+      responses:
+        '200':
+          description: Payout created or reused
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReflectPayout'
+        '400':
+          description: Event not verified or already settled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Reflect API failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      summary: List payout statuses
+      description: >
+        Returns payout records for dashboard consumption, optionally filtered by host or status.
+      operationId: listReflectPayouts
+      tags: [Reflect]
+      parameters:
+        - in: query
+          name: hostId
+          schema:
+            type: string
+          description: Filter by creator/host identifier.
+        - in: query
+          name: status
+          schema:
+            $ref: '#/components/schemas/PayoutStatus'
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: Pagination cursor.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Payout list
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, nextCursor]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReflectPayout'
+                  nextCursor:
+                    type: string
+                    nullable: true
+        '500':
+          description: Unexpected failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/ops/payouts/{eventId}:
+    get:
+      summary: Fetch payout + verification status for a single event.
+      description: >
+        Combines verification and payout data for op dashboards and QA automation.
+      operationId: getPayoutStatus
+      tags: [Operations]
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Event status detail
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [eventId, verification, payout]
+                properties:
+                  eventId:
+                    type: string
+                  verification:
+                    $ref: '#/components/schemas/VerificationStatus'
+                  payout:
+                    $ref: '#/components/schemas/ReflectPayout'
+        '404':
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  parameters:
+    WebhookSecret:
+      name: x-webhook-secret
+      in: header
+      schema:
+        type: string
+      required: true
+      description: Shared secret matching `WEBHOOK_SECRET`.
+  schemas:
+    SolanaTipPayload:
+      type: object
+      required:
+        - txSignature
+        - type
+        - signer
+        - receiver
+        - amount
+        - storyId
+        - timestamp
+      properties:
+        txSignature:
+          type: string
+          description: Base58 Solana transaction signature.
+        type:
+          type: string
+          enum: [tip, share]
+        signer:
+          type: string
+          description: Wallet address initiating the tip.
+        receiver:
+          type: string
+          description: Wallet receiving the tip.
+        amount:
+          type: string
+          pattern: '^\d+(\.\d+)?$'
+          description: Amount in SOL (string for precision).
+        storyId:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+        metadata:
+          type: object
+          additionalProperties: true
+          description: Optional metadata (e.g., Dynamic session id).
+    WebhookAccepted:
+      type: object
+      required: [eventId, verificationStatus]
+      properties:
+        eventId:
+          type: string
+        verificationStatus:
+          type: string
+          enum: [pending, skipped]
+        queuedAt:
+          type: string
+          format: date-time
+    CreateReflectPayoutRequest:
+      type: object
+      required: [eventId, currency]
+      properties:
+        eventId:
+          type: string
+        currency:
+          type: string
+          example: USDC
+        overrideAmount:
+          type: string
+          pattern: '^\d+(\.\d+)?$'
+          description: Optional override stablecoin amount if different from SOL equivalent.
+    PayoutStatus:
+      type: string
+      enum: [pending, queued, settled, failed, cancelled]
+    VerificationStatus:
+      type: object
+      required: [status, signature]
+      properties:
+        status:
+          type: string
+          enum: [pending, verified, failed]
+        signature:
+          type: string
+        slot:
+          type: integer
+          format: int64
+          nullable: true
+        verifiedAt:
+          type: string
+          format: date-time
+          nullable: true
+        errorCode:
+          type: string
+          nullable: true
+    ReflectPayout:
+      type: object
+      required:
+        - payoutId
+        - eventId
+        - status
+        - currency
+        - amount
+        - updatedAt
+      properties:
+        payoutId:
+          type: string
+        eventId:
+          type: string
+        status:
+          $ref: '#/components/schemas/PayoutStatus'
+        currency:
+          type: string
+        amount:
+          type: string
+          pattern: '^\d+(\.\d+)?$'
+        attemptCount:
+          type: integer
+          minimum: 0
+        lastError:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+        detail:
+          type: string
+          nullable: true

@@ -1,0 +1,1515 @@
+[2m2025-10-27T04:50:48.052460Z[0m [32m INFO[0m cwd not set, using current dir
+[2m2025-10-27T04:51:57.954438Z[0m [32m INFO[0m ERR: No such file or directory (os error 2)
+[2m2025-10-27T04:52:15.037616Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"in_progress","step":"Review constitution template and identify placeholders + needed context sources"},{"status":"pending","step":"Collect required values from repo docs and decide version bump"},{"status":"pending","step":"Draft updated constitution with Sync Impact Report and apply changes"},{"status":"pending","step":"Propagate updates to related templates/docs and verify alignment"}]}
+[2m2025-10-27T04:52:18.288689Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/memory/constitution.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:21.706344Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:24.965213Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat README.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:27.897733Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","rg \"Constitution\" -n"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:30.342737Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .specify"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:32.616714Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .specify/templates"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:35.994540Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls docs"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:45.526717Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat docs/Repo_Structure.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:49.818040Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","head -n 80 docs/QA.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:52.966905Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/plan-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:56.250551Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/spec-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:52:59.113639Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/tasks-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:02.170693Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .specify/templates/commands"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:05.387813Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","find .specify -maxdepth 2 -type d"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:07.997906Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .specify/scripts"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:11.694260Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .specify/scripts/bash"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:16.695205Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","head -n 120 docs/Contract.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:25.329202Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","date +%Y-%m-%d"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:39.204472Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Review constitution template and identify placeholders + needed context sources"},{"status":"in_progress","step":"Collect required values from repo docs and decide version bump"},{"status":"pending","step":"Draft updated constitution with Sync Impact Report and apply changes"},{"status":"pending","step":"Propagate updates to related templates/docs and verify alignment"}], "explanation":"Reviewed the template and repo docs (README, Repo_Structure, QA) to understand context and placeholders."}
+[2m2025-10-27T04:53:45.354076Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat package.json"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:49.797770Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","head -n 60 scripts/diagnose.ts"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:53:53.515774Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","head -n 80 scripts/seed.ts"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:54:25.433819Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Review constitution template and identify placeholders + needed context sources"},{"status":"completed","step":"Collect required values from repo docs and decide version bump"},{"status":"in_progress","step":"Draft updated constitution with Sync Impact Report and apply changes"},{"status":"pending","step":"Propagate updates to related templates/docs and verify alignment"}], "explanation":"Set project name (TipConnect), defined five core principles around contract-first, environment health, deterministic data, test gating, and blink observability. Decided this is the first ratified version so constitution version will start at 1.0.0 with ratification/amendment date 2025-10-27."}
+[2m2025-10-27T04:55:20.494247Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/memory/constitution.md
+*** End Patch
+[2m2025-10-27T04:55:27.342146Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Delete File: .specify/memory/constitution.md
+*** End Patch
+[2m2025-10-27T04:55:54.636197Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: .specify/memory/constitution.md
++<!--
++Sync Impact Report
++- Version: template -> 1.0.0
++- Modified Principles:
++  - [PRINCIPLE_1_NAME] -> Contract-First Delivery
++  - [PRINCIPLE_2_NAME] -> Single-Command Environment Health
++  - [PRINCIPLE_3_NAME] -> Deterministic Data Baselines
++  - [PRINCIPLE_4_NAME] -> Test-Gated Releases
++  - [PRINCIPLE_5_NAME] -> Blink-First Observability & Performance
++- Added Sections: Platform Constraints & Tooling; Workflow & Quality Gates
++- Removed Sections: None
++- Templates requiring updates:
++  - ✅ .specify/templates/plan-template.md
++  - ✅ .specify/templates/spec-template.md
++  - ✅ .specify/templates/tasks-template.md
++- Follow-up TODOs: None
++-->
++# TipConnect Constitution
++
++## Core Principles
++
++### Contract-First Delivery
++- All changes to APIs, database schema, or Solana integrations MUST be defined in `/docs/Contract.md` and `/docs/API.md` before implementation starts.
++- Schema adjustments MUST land via Drizzle migrations with matching updates to `scripts/seed.ts`, QA baselines in `docs/QA*.md`, and the release checklist; direct SQL patches are forbidden.
++- API handlers and shared types MUST enforce the documented contract using type-safe validators (e.g., Zod schemas) to block incompatible responses.
++
++Rationale: Solana-facing clients and downstream analytics depend on a stable contract; defining and enforcing it first prevents breaking migrations and keeps integrations auditable.
++
++### Single-Command Environment Health
++- `pnpm dev:up` MUST remain the canonical path for local setup; diagnostics, migrations, seeding, and dev server steps integrate into this command.
++- Any new environment variable or external dependency MUST be validated inside `scripts/diagnose.ts`, failing fast when misconfigured.
++- Manual environment steps MUST be automated in `/scripts` and documented in `docs/Runbook.md` before merge.
++
++Rationale: TipConnect is bootstrapped by new contributors; a single automated command preserves parity across laptops, CI, and preview deployments.
++
++### Deterministic Data Baselines
++- Sample data in `scripts/seed.ts` MUST keep stable identifiers, transaction signatures, and metric expectations so QA documents and automated tests remain reproducible.
++- When seed data changes, maintainers MUST update `docs/QA*.md` and `docs/Runbook.md` with the new baselines and regenerate any monitoring snapshots.
++- Contract, idempotency, and e2e tests MUST source fixtures from `/tests` or the shared seed data; ad-hoc records that drift from the published baselines are prohibited.
++
++Rationale: Stable seeds backstop smoke tests, blink demos, and analytics verification without re-learning datasets each release.
++
++### Test-Gated Releases
++- Feature plans MUST enumerate independent acceptance tests per user story; implementation starts only after those tests exist and fail.
++- Every PR MUST run `pnpm test:contract`, `pnpm test:idempotency`, and `pnpm test:e2e`; failures block merge until resolved.
++- New functionality MUST add or extend automated tests that prove behaviour against the published QA baselines; manual verification alone is insufficient.
++
++Rationale: The Solana ingest path is brittle without contract validation and idempotency guards; gated tests stop regressions before they reach production.
++
++### Blink-First Observability & Performance
++- Blink-facing endpoints (`/api/overview`, `/api/discover`, `/api/creators/*`) MUST expose the metrics defined in `docs/QA.md` with accurate totals, supporters, and shares.
++- API handlers MUST maintain the latency targets in `docs/Repo_Structure.md` (p95 < 500 ms for Discover, < 300 ms for Overview); breaches require instrumentation and remediation before release.
++- Logging and analytics MUST capture blink events, SOL deltas, and error states in a structured format so Ops can trace issues end-to-end.
++
++Rationale: TipConnect’s value comes from real-time blink insight; observability and SLO adherence keep creators trusted.
++
++## Platform Constraints & Tooling
++- Language runtime MUST stay within Node.js ≥18.18 and ≤20.x, using the Next.js 14 App Router stack defined in `package.json`.
++- `pnpm` (declared in `packageManager`) is the only supported package manager; lockfile updates ship with any dependency change.
++- Database access MUST flow through Drizzle ORM against Neon Postgres; direct SQL clients or alternate databases require governance approval.
++- Solana remains the sole blockchain target; multi-chain functionality demands a constitution amendment.
++- Shared modules and utilities live under `/lib`, `/scripts`, and `/drizzle`; new tooling requires an architecture rationale in `docs/Repo_Structure.md`.
++
++## Workflow & Quality Gates
++- All feature work begins in `/specs/[###-feature-name]/` using the provided templates; placeholders MUST be replaced with project-specific content before implementation.
++- The “Constitution Check” section in `plan.md` MUST confirm compliance with every principle before Phase 0 research and be revalidated before coding starts.
++- Delivery checklists in `docs/Release.md` and `checklist.md` MUST reflect current principles; updates to workflows require synchronized doc changes.
++- Runtime guidance (`README.md`, `docs/Runbook.md`, feature quickstarts) MUST stay aligned whenever commands, environments, or constraints change.
++
++## Governance
++- This constitution supersedes conflicting process guidance; maintainers resolve disputes by referencing `.specify/memory/constitution.md`.
++- Amendments require: (1) a pull request describing the change, (2) updated dependent templates/docs, (3) approval from two maintainers, and (4) publication of the Sync Impact Report comment.
++- Versioning follows semantic rules: MAJOR for principle removal/redefinition or governance rewrites; MINOR for new principles or substantive expansions; PATCH for clarifications or typo fixes.
++- Compliance reviews run before every tagged release and at least monthly; reviewers audit recent specs, plans, tasks, QA docs, and repository reports for alignment.
++- Violations uncovered during review MUST have corrective work items filed within the `/specs` workflow before new features start.
++
++**Version**: 1.0.0 | **Ratified**: 2025-10-27 | **Last Amended**: 2025-10-27
+*** End Patch
+[2m2025-10-27T04:55:58.001230Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/memory/constitution.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:56:07.604750Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/memory/constitution.md
+@@
+-- API handlers MUST maintain the latency targets in `docs/Repo_Structure.md` (p95 < 500 ms for Discover, < 300 ms for Overview); breaches require instrumentation and remediation before release.
++- API handlers MUST maintain the latency targets in `docs/Repo_Structure.md` (p95 < 500 ms for Discover, < 300 ms for Overview); breaches require instrumentation and remediation before release.
+@@
+-Rationale: TipConnect’s value comes from real-time blink insight; observability and SLO adherence keep creators trusted.
++Rationale: TipConnect's value comes from real-time blink insight; observability and SLO adherence keep creators trusted.
+@@
+-- The “Constitution Check” section in `plan.md` MUST confirm compliance with every principle before Phase 0 research and be revalidated before coding starts.
++- The "Constitution Check" section in `plan.md` MUST confirm compliance with every principle before Phase 0 research and be revalidated before coding starts.
+*** End Patch
+[2m2025-10-27T04:56:10.893377Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/memory/constitution.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:56:20.023907Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Review constitution template and identify placeholders + needed context sources"},{"status":"completed","step":"Collect required values from repo docs and decide version bump"},{"status":"completed","step":"Draft updated constitution with Sync Impact Report and apply changes"},{"status":"pending","step":"Propagate updates to related templates/docs and verify alignment"}], "explanation":"Published the first TipConnect constitution (v1.0.0) with five concrete principles, supporting sections, governance rules, and the Sync Impact Report comment."}
+[2m2025-10-27T04:56:33.328129Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/plan-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:57:07.532857Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/templates/plan-template.md
+@@
+-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
++**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/scripts/bash/setup-plan.sh` for the execution workflow.
+@@
+-<!--
+-  ACTION REQUIRED: Replace the content in this section with the technical details
+-  for the project. The structure here is presented in advisory capacity to guide
+-  the iteration process.
+--->
+-
+-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
+-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
+-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+-**Project Type**: [single/web/mobile - determines source structure]  
+-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
+-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
+-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
++**Language/Version**: Node.js 18.18–20.x, Next.js 14 App Router, TypeScript 5.9  
++**Primary Dependencies**: React 18, Drizzle ORM, Neon Postgres, TailwindCSS, SWR, Zod  
++**Storage**: Postgres (Neon serverless) via Drizzle migrations  
++**Testing**: Vitest (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`)  
++**Target Platform**: Web (Solana-facing dashboards and APIs)  
++**Project Type**: Single Next.js repo (`app/`, `components/`, `lib/`, `drizzle/`, `tests/`)  
++**Performance Goals**: `/api/overview` p95 < 300 ms, `/api/discover` p95 < 500 ms, `/api/creators/*` p95 < 400 ms  
++**Constraints**: Must preserve `pnpm dev:up` flow (diagnose → migrate → seed → dev) and contract alignment  
++**Scale/Scope**: Supports multi-creator analytics; confirm story/user counts per feature
+@@
+-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+-
+-[Gates determined based on constitution file]
++*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
++
++- [ ] **Contract-First Delivery**: Plan documents required updates to `/docs/Contract.md`, `/docs/API.md`, migrations, and `scripts/seed.ts`.
++- [ ] **Single-Command Environment Health**: Impact on `pnpm dev:up` and `scripts/diagnose.ts` is addressed, with automation for any new setup steps.
++- [ ] **Deterministic Data Baselines**: QA baselines and fixtures (`docs/QA*.md`, `/tests`) are updated or confirmed unchanged.
++- [ ] **Test-Gated Releases**: Independent failing tests are outlined per user story prior to implementation.
++- [ ] **Blink-First Observability & Performance**: Monitoring/latency changes stay within SLOs and include instrumentation when needed.
++
++Document any exceptions in the Complexity Tracking table and secure maintainer approval.
+@@
+-### Source Code (repository root)
+-<!--
+-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+-  for this feature. Delete unused options and expand the chosen structure with
+-  real paths (e.g., apps/admin, packages/something). The delivered plan must
+-  not include Option labels.
+--->
+-
+-```text
+-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+-src/
+-├── models/
+-├── services/
+-├── cli/
+-└── lib/
+-
+-tests/
+-├── contract/
+-├── integration/
+-└── unit/
+-
+-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+-backend/
+-├── src/
+-│   ├── models/
+-│   ├── services/
+-│   └── api/
+-└── tests/
+-
+-frontend/
+-├── src/
+-│   ├── components/
+-│   ├── pages/
+-│   └── services/
+-└── tests/
+-
+-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
+-api/
+-└── [same as backend above]
+-
+-ios/ or android/
+-└── [platform-specific structure: feature modules, UI flows, platform tests]
+-```
+-
+-**Structure Decision**: [Document the selected structure and reference the real
+-directories captured above]
++### Source Code (repository root)
++
++```text
++app/                     # Next.js App Router routes (pages, layouts, API routes)
++components/              # Shared React components
++lib/                     # Client/server utilities (db, solana helpers, etc.)
++drizzle/                 # Schema definitions and migrations
++scripts/                 # Automation (diagnose, seed, helpers)
++tests/                   # Contract, idempotency, and e2e suites
++docs/                    # Contract, API, QA, Runbook, Release references
++public/                  # Static assets
++```
++
++**Structure Decision**: [Identify directories touched by this feature, call out new files, and confirm they align with the tree above]
+*** End Patch
+[2m2025-10-27T04:57:09.868872Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","specify --help"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:57:11.982124Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/plan-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:57:19.388381Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/templates/plan-template.md
+@@
+-**Language/Version**: Node.js 18.18–20.x, Next.js 14 App Router, TypeScript 5.9  
++**Language/Version**: Node.js 18.18-20.x, Next.js 14 App Router, TypeScript 5.9  
+@@
+-**Constraints**: Must preserve `pnpm dev:up` flow (diagnose → migrate → seed → dev) and contract alignment  
++**Constraints**: Must preserve `pnpm dev:up` flow (diagnose -> migrate -> seed -> dev) and contract alignment  
+*** End Patch
+[2m2025-10-27T04:57:31.391662Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/spec-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:57:43.497308Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Delete File: .specify/templates/spec-template.md
+*** End Patch
+[2m2025-10-27T04:58:13.806660Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: .specify/templates/spec-template.md
++# Feature Specification: [FEATURE NAME]
++
++**Feature Branch**: `[###-feature-name]`  
++**Created**: [DATE]  
++**Status**: Draft  
++**Input**: User description: "$ARGUMENTS"
++
++## Contract & Data Impact *(mandatory)*
++
++- **Contract Docs**: [Sections in `/docs/Contract.md` and `/docs/API.md` that change; link to diff or outline new entities/endpoints]
++- **Migrations**: [Drizzle migration filename(s), affected tables/columns, rollback notes]
++- **Seed Data**: [Updates required in `scripts/seed.ts` and expected metric deltas]
++- **QA Baselines**: [Docs (e.g., `docs/QA.md`, `docs/QA_Discover.md`) to regenerate with new expectations]
++
++## User Scenarios & Testing *(mandatory)*
++
++Prioritize journeys (P1, P2, P3...) where each story is independently ship-ready. Every story MUST map to failing tests before implementation (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`, or story-specific suites).
++
++### User Story 1 - [Brief Title] (Priority: P1)
++
++[Describe the journey and the value it delivers]
++
++**Why this priority**: [Explain the value for creators/supporters]
++
++**Independent Test**: [Exact command or Vitest pattern that validates the story on its own]
++
++**Acceptance Scenarios**:
++
++1. **Given** [initial state], **When** [action], **Then** [expected outcome]
++2. **Given** [initial state], **When** [action], **Then** [expected outcome]
++
++---
++
++### User Story 2 - [Brief Title] (Priority: P2)
++
++[Describe this user journey in plain language]
++
++**Why this priority**: [Explain the value and why it has this priority level]
++
++**Independent Test**: [Describe how this can be tested independently]
++
++**Acceptance Scenarios**:
++
++1. **Given** [initial state], **When** [action], **Then** [expected outcome]
++
++---
++
++### User Story 3 - [Brief Title] (Priority: P3)
++
++[Describe this user journey in plain language]
++
++**Why this priority**: [Explain the value and why it has this priority level]
++
++**Independent Test**: [Describe how this can be tested independently]
++
++**Acceptance Scenarios**:
++
++1. **Given** [initial state], **When** [action], **Then** [expected outcome]
++
++---
++
++[Add more user stories as needed, each with an assigned priority]
++
++### Edge Cases
++
++- What happens when Solana data is missing, duplicated, or delayed?
++- How are unsupported Blink actions handled?
++- What is the fallback when external services (e.g., Neon, webhooks) fail?
++
++## Environment & Operations *(mandatory)*
++
++- **pnpm dev:up**: [Describe impacts; list any additional scripts bundled into the command]
++- **Diagnose Checks**: [New validations to add to `scripts/diagnose.ts`]
++- **Runbook/Release**: [Updates required in `docs/Runbook.md`, `docs/Release.md`, or `checklist.md`]
++- **Feature Flags / Config**: [Environment variables, defaults, rollout strategy]
++
++## Observability & Performance *(mandatory)*
++
++- **Metrics & Logging**: [New structured logs, telemetry, or dashboards required; include event fields]
++- **Latency/SLOs**: [Expected p95 targets for each touched endpoint or page; mitigation plan if at risk]
++- **Monitoring Hooks**: [Alerts or QA verification steps needed to keep blink insights trusted]
++
++## Requirements *(mandatory)*
++
++### Functional Requirements
++
++- **FR-001**: System MUST expose contract-compliant responses for [endpoint or UI] as documented in `/docs/API.md`.
++- **FR-002**: Database changes MUST be persisted through Drizzle migrations and reflect in analytics queries.
++- **FR-003**: `pnpm test:contract` MUST cover [scenario]; add/extend tests if gaps exist.
++- **FR-004**: `pnpm test:idempotency` MUST confirm repeat Solana events do not alter aggregates.
++- **FR-005**: `pnpm test:e2e` (or equivalent) MUST validate end-to-end user behaviour for the highest priority story.
++
++*Mark unclear requirements explicitly, e.g.:*
++
++- **FR-006**: NEEDS CLARIFICATION - [Describe ambiguity blocking contract alignment]
++- **FR-007**: NEEDS CLARIFICATION - [Describe ambiguity blocking deterministic data]
++
++### Key Entities *(include if feature involves data)*
++
++- **[Entity]**: [Purpose, important fields, relationship to existing tables in `drizzle/schema.ts`]
++- **[Event/Metric]**: [How it is emitted, aggregated, and surfaced in APIs/UI]
++
++## Success Criteria *(mandatory)*
++
++### Measurable Outcomes
++
++- **SC-001**: [Creator/supporter value metric, e.g., "Discover filters return accurate SOL totals for new action types"]
++- **SC-002**: [Performance metric, e.g., "`/api/discover` p95 stays < 500 ms under [load scenario]"]
++- **SC-003**: [Data integrity metric, e.g., "Idempotent replay retains identical aggregates across seeds"]
++- **SC-004**: [Operational metric, e.g., "`pnpm dev:up` completes in < 2 minutes with new dependencies configured"]
+*** End Patch
+[2m2025-10-27T04:58:18.451231Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/spec-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:58:25.236355Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/tasks-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:58:35.048043Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Delete File: .specify/templates/tasks-template.md
+*** End Patch
+[2m2025-10-27T04:59:13.995361Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: .specify/templates/tasks-template.md
++---
++
++description: "Task list template for TipConnect feature implementation"
++---
++
++# Tasks: [FEATURE NAME]
++
++**Input**: `/specs/[###-feature-name]/` (plan.md, spec.md, research.md, data-model.md, contracts/)  
++**Prerequisites**: Constitution Check passed in plan.md; contract/docs/migration impact documented in spec.md
++
++**Tests**: Every user story starts with failing automated tests (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`, or story-specific Vitest suites). Do not skip or defer tests.
++
++**Organization**: Tasks are grouped by user story to maintain independent delivery slices.
++
++## Format: `[ID] [P?] [Story] Description`
++
++- **[P]**: Task can run in parallel (no shared files or migrations)
++- **[Story]**: User story label (e.g., US1, US2, US3)
++- Include concrete file paths (`app/`, `components/`, `lib/`, `drizzle/`, `tests/`, `docs/`)
++
++## Path Conventions
++
++- **Routes/UI**: `app/[route]/page.tsx`, `app/api/[name]/route.ts`, supporting components in `components/`
++- **Database**: `drizzle/schema.ts`, `drizzle/migrations/*`
++- **Utilities**: `lib/` (e.g., `lib/db.ts`, `lib/solana/*`)
++- **Automation**: `scripts/` (e.g., `scripts/diagnose.ts`, `scripts/seed.ts`)
++- **Tests**: `tests/contract/*.test.ts`, `tests/idempotency/*.test.ts`, `tests/e2e/*.test.ts`
++- **Docs**: `docs/Contract.md`, `docs/API.md`, `docs/QA*.md`, `docs/Runbook.md`, `docs/Release.md`
++
++<!--
++  ============================================================================
++  IMPORTANT: Replace the sample tasks below with feature-specific items.
++  Keep the phase structure so compliance checks remain traceable.
++  ============================================================================
++-->
++
++## Phase 0: Constitution Guardrails
++
++**Purpose**: Confirm prerequisites before building.
++
++- [ ] T000 [P] Validate plan.md Constitution Check entries (all five principles accounted for)
++- [ ] T001 [P] Update `/docs/Contract.md` & `/docs/API.md` skeleton with planned changes (review before coding)
++- [ ] T002 Ensure new migrations are drafted (placeholder filenames) and `scripts/seed.ts` deltas identified
++- [ ] T003 List QA docs to refresh (`docs/QA.md`, `docs/QA_Discover.md`, etc.) and assign owners
++- [ ] T004 Record monitoring/performance acceptance criteria for each touched endpoint
++
++**Checkpoint**: Review with maintainer; do not proceed until signed off.
++
++---
++
++## Phase 1: Foundational (Blocking)
++
++**Purpose**: Implement shared plumbing required by all stories.
++
++- [ ] T010 Apply Drizzle migration in `drizzle/migrations/[timestamp]_[name].ts` and update `drizzle/schema.ts`
++- [ ] T011 Refresh `scripts/seed.ts` fixtures and verify `pnpm dev:up` completes successfully
++- [ ] T012 Extend `scripts/diagnose.ts` with new environment validations
++- [ ] T013 Update contract/docs (`docs/Contract.md`, `docs/API.md`) with final schema/endpoint language
++- [ ] T014 Regenerate QA baselines in `docs/QA*.md` to reflect new totals
++
++**Checkpoint**: `pnpm dev:up` runs clean; baseline tests pass or intentionally fail for upcoming stories.
++
++---
++
++## Phase 2: User Story 1 - [Title] (Priority: P1) 🎯 MVP
++
++**Independent Test**: [Command or pattern that proves the story succeeds]
++
++### Tests First
++
++- [ ] T020 [US1] Add/extend contract test in `tests/contract/[feature].test.ts` (fails awaiting implementation)
++- [ ] T021 [US1] Add idempotency/e2e coverage in `tests/idempotency/[feature].test.ts` or `tests/e2e/[feature].test.ts`
++
++### Implementation
++
++- [ ] T022 [US1] Implement API/UI changes in `app/api/[route]/route.ts` or `app/[page]/page.tsx`
++- [ ] T023 [US1] Add supporting component/util updates in `components/` or `lib/`
++- [ ] T024 [US1] Wire metrics/logging per observability plan
++- [ ] T025 [US1] Update docs (runbook/release notes) for new behaviour
++
++**Checkpoint**: Run targeted tests (`pnpm test:contract`, etc.) and confirm QA baselines remain consistent.
++
++---
++
++## Phase 3: User Story 2 - [Title] (Priority: P2)
++
++**Independent Test**: [Command or pattern that proves the story succeeds]
++
++### Tests First
++
++- [ ] T030 [US2] Extend contract/idempotency tests for new scenario (`tests/contract`, `tests/idempotency`)
++- [ ] T031 [US2] Add e2e coverage if UI path changes (`tests/e2e`)
++
++### Implementation
++
++- [ ] T032 [US2] Update relevant `app/` route or component
++- [ ] T033 [US2] Adjust database/query helpers in `lib/` to support the story
++- [ ] T034 [US2] Update instrumentation/alerts if metrics change
++
++**Checkpoint**: Story-specific tests pass independently; re-run regression suite if shared code touched.
++
++---
++
++## Phase 4: User Story 3 - [Title] (Priority: P3)
++
++Repeat the pattern used for earlier stories: tests first, then implementation, documentation, and instrumentation.
++
++- [ ] T040 ... (define tests)
++- [ ] T041 ... (define implementation)
++
++---
++
++## Phase N: Polish & Release Readiness
++
++- [ ] T090 Re-run `pnpm dev:up` from clean environment and document results
++- [ ] T091 Execute full test suite (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`)
++- [ ] T092 Update `docs/Release.md` checklist and add notes to `checklist.md` if new manual steps exist
++- [ ] T093 Capture changelog entry / Sync Impact summary if constitution elements shift
++- [ ] T094 Final review of logs/metrics to ensure observability coverage
++
++---
++
++## Dependencies & Execution Order
++
++- Phase 0 must be complete (and approved) before coding or migrations begin.
++- Phase 1 must pass before any user story work starts.
++- Each user story proceeds sequentially by priority unless explicitly staffed in parallel with no file overlap.
++- Tests ALWAYS precede implementation tasks for a story.
++
++---
++
++## Notes
++
++- Keep tasks atomic and reference exact files.
++- When modifying shared modules, flag downstream stories that must re-run tests.
++- Call out follow-up QA/doc work as tasks rather than notes so ownership is clear.
+*** End Patch
+[2m2025-10-27T04:59:20.356017Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/templates/tasks-template.md
+@@
+-## Phase 2: User Story 1 - [Title] (Priority: P1) 🎯 MVP
++## Phase 2: User Story 1 - [Title] (Priority: P1) MVP
+*** End Patch
+[2m2025-10-27T04:59:24.165307Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat .specify/templates/tasks-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:59:28.961011Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat checklist.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:59:36.020257Z[0m [32m INFO[0m ERR: No such file or directory (os error 2)
+[2m2025-10-27T04:59:46.672650Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: checklist.md
+@@
+-## Contract & Schema
+-- [ ] Contract.md updated (fields, semantics, constraints)
+-- [ ] Migrations included; seeds & tests synchronized
+-- [ ] Idempotency: UNIQUE(tx_signature, type) intact
+-
+-## Security & Integrity
+-- [ ] WEBHOOK_SECRET validated (HMAC or shared secret)
+-- [ ] All external links verify tx signatures (explorer)
+-
+-## Observability
+-- [ ] Logs include: ingested_total, duplicates_total, dlq_total, overview_latency_ms_p95
+-- [ ] /scripts/diagnose.ts OK; /scripts/seed.ts OK
+-
+-## Performance
+-- [ ] Devnet ingest→overview P95 < 3000ms
+-- [ ] test:e2e green
+-
+-## Docs
+-- [ ] README updated
+-- [ ] Runbook has replay steps & screenshots
+-- [ ] Release checklist ticked
++## Contract-First Delivery
++- [ ] `/docs/Contract.md` and `/docs/API.md` updated (fields, semantics, constraints)
++- [ ] Drizzle migrations included; `scripts/seed.ts` + QA docs in sync
++- [ ] Idempotency guard (`UNIQUE(tx_signature, type)`) preserved and tested
++
++## Single-Command Environment
++- [ ] `pnpm dev:up` passes end-to-end from clean state
++- [ ] `scripts/diagnose.ts` covers new env requirements
++- [ ] Any manual setup encoded in `/scripts` and documented in `docs/Runbook.md`
++
++## Deterministic Data Baselines
++- [ ] Seeds produce expected metrics (compare against `docs/QA*.md`)
++- [ ] Tests consume shared fixtures (no ad-hoc records)
++- [ ] Release checklist captures data/backfill steps if required
++
++## Test-Gated Releases
++- [ ] `pnpm test:contract` green with new assertions
++- [ ] `pnpm test:idempotency` verifies repeat events leave aggregates unchanged
++- [ ] `pnpm test:e2e` (or focused story suite) passes
++
++## Blink-First Observability & Performance
++- [ ] Logs include `ingested_total`, `duplicates_total`, `dlq_total`, latency metrics
++- [ ] Endpoint p95 targets met (`/api/overview` < 300 ms, `/api/discover` < 500 ms, `/api/creators/*` < 400 ms)
++- [ ] Monitoring/alerts updated for new fields or failure modes
++
++## Security & Integrations
++- [ ] `WEBHOOK_SECRET` validation intact (HMAC or shared secret)
++- [ ] External Solana links validate transaction signatures
++- [ ] Third-party dependencies reviewed for compatibility with Node 18-20
++
++## Docs & Release
++- [ ] README or feature docs updated when UX/API changes surface
++- [ ] `docs/Runbook.md` describes replay/rollback steps
++- [ ] `docs/Release.md` checklist ticked with owner initials
+*** End Patch
+[2m2025-10-27T04:59:51.668649Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"in_progress","step":"Inspect repository structure and existing functionality for TipConnect project."},{"status":"pending","step":"Map PPT feature claims to actual implementation status (implemented vs not)."}]}
+[2m2025-10-27T04:59:52.141354Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","cat docs/Release.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:59:54.223094Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T04:59:56.733605Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' README.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:00.995637Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' app/page.tsx"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:02.901133Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: docs/Release.md
+@@
+-# Release Checklist
+-
+-- [ ] ENV secrets set in platform (no .env in images)
+-- [ ] Health check script outputs 2xx for overview/discover/webhook (dry-run)
+-- [ ] P95 ingest→overview < 3s on devnet
++# Release Checklist
++
++## Pre-Flight
++- [ ] ENV secrets set in platform (no `.env` in images); `WEBHOOK_SECRET` matches deploy config
++- [ ] `pnpm dev:up` succeeds from clean checkout (diagnose -> migrate -> seed -> dev)
++- [ ] Drizzle migrations applied and rolled forward in staging
++- [ ] `scripts/seed.ts` + QA docs (`docs/QA*.md`) refreshed with release data
++
++## Validation
++- [ ] `pnpm test:contract` / `pnpm test:idempotency` / `pnpm test:e2e` green
++- [ ] Health check script reports 2xx for `/api/overview`, `/api/discover`, `/api/webhooks/solana/tx`
++- [ ] Endpoint latency targets met in staging (`/api/overview` p95 < 300 ms, `/api/discover` p95 < 500 ms)
++
++## Observability & Docs
++- [ ] Logs include `ingested_total`, `duplicates_total`, `dlq_total`, latency metrics post-deploy
++- [ ] Monitoring/alerts updated for new metrics or error conditions
++- [ ] `docs/Runbook.md` + `README.md` updated with any new workflows
++- [ ] Release notes recorded (link to changelog or Sync Impact summary)
+*** End Patch
+[2m2025-10-27T05:00:03.753500Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' app/discover/page.tsx"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:07.418840Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","head -n 60 docs/Runbook.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:07.495473Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls app"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:12.702206Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls 'app/(public)'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:15.670153Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls 'app/(public)/discover'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:17.172002Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Review constitution template and identify placeholders + needed context sources"},{"status":"completed","step":"Collect required values from repo docs and decide version bump"},{"status":"completed","step":"Draft updated constitution with Sync Impact Report and apply changes"},{"status":"completed","step":"Propagate updates to related templates/docs and verify alignment"}], "explanation":"Updated plan, spec, and tasks templates plus checklist and release guides to reflect the new constitutional principles and workflows."}
+[2m2025-10-27T05:00:18.297797Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(public)/discover/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:22.103070Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","git status -sb"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:22.374082Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(public)/story/[id]/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:25.436190Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(public)/creators/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:28.904399Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(public)/creators/[id]/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:30.009107Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","git status"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:31.827673Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/overview/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:35.149859Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/discover/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:38.399857Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/creators/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:39.482519Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","ls .codex"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:41.621942Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls 'app/api/creators'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:45.290686Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/creators/[id]/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:48.672136Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/webhooks/solana/tx/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:51.727624Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'drizzle/schema.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:53.536493Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","nl -ba .specify/memory/constitution.md | sed -n '1,160p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:55.088213Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'scripts/seed.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:58.474546Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'lib/db.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:00:59.049278Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: .specify/memory/constitution.md
+@@
+-- Language runtime MUST stay within Node.js ≥18.18 and ≤20.x, using the Next.js 14 App Router stack defined in `package.json`.
++- Language runtime MUST stay within Node.js >=18.18 and <=20.x, using the Next.js 14 App Router stack defined in `package.json`.
+*** End Patch
+[2m2025-10-27T05:01:02.257627Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat package.json"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:03.506989Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","nl -ba .specify/memory/constitution.md | sed -n '55,80p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:05.733349Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' 'tests/contract.test.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:08.220881Z[0m [32m INFO[0m ToolCall: shell {"command":["bash","-lc","git status -sb"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:09.202684Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' 'tests/idempotency.test.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:12.102425Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' 'tests/e2e.test.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:25.430926Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg \"Reflect\" -n"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:28.143189Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","command -v rg"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:39.450132Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg --files | head"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:47.109184Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg -n \"Reflect\""],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:01:52.469170Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","grep -R \"Reflect\" -n"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:05.109831Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Inspect repository structure and existing functionality for TipConnect project."},{"status":"in_progress","step":"Map PPT feature claims to actual implementation status (implemented vs not)."}]}
+[2m2025-10-27T05:02:14.063119Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg -n \"Solana\""],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:17.483961Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(public)/activity/[txSig]/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:21.481139Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg -n \"Dynamic\""],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:24.854600Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","grep -R \"Dynamic\" -n"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:35.712193Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' checklist.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:38.979541Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'scripts/diagnose.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:42.806365Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls docs"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:45.820038Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' 'docs/API.md'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:50.428789Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg -n \"Blink\" 'app'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:54.122384Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/(authed)/blinks/create/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:02:57.644543Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,160p' 'app/(authed)/story/create/page.tsx'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:00.796138Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls app/dashboard"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:04.468659Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' app/dashboard/page.tsx"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:07.786123Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'app/api/ops/replay/route.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:11.356236Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","sed -n '1,200p' 'lib/hostMetrics.ts'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:21.432531Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","rg -n \"reflect\" app lib scripts"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:25.574318Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","grep -R \"reflect\" app lib scripts"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:39.688933Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/(public)/discover/page.tsx' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:43.754485Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/(public)/story/[id]/page.tsx' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:47.395785Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/api/discover/route.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:03:51.943204Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/api/creators/route.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:01.742859Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/api/overview/route.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:06.101272Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/api/webhooks/solana/tx/route.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:10.722578Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls drizzle/migrations"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:17.496488Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba package.json"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:43.432630Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'app/api/creators/[id]/route.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:04:47.207628Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","nl -ba 'scripts/seed.ts' | sed -n '1,200p'"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:05:06.059066Z[0m [32m INFO[0m ToolCall: update_plan {"plan":[{"status":"completed","step":"Inspect repository structure and existing functionality for TipConnect project."},{"status":"completed","step":"Map PPT feature claims to actual implementation status (implemented vs not)."}]}
+[2m2025-10-27T05:16:52.941560Z[0m [32m INFO[0m ERR: No such file or directory (os error 2)
+[2m2025-10-27T05:21:55.916664Z[0m [32m INFO[0m ERR: No such file or directory (os error 2)
+[2m2025-10-27T05:22:38.456379Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/setup-plan.sh --json"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:22:42.164535Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls .specify"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:22:47.509775Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/setup-plan.sh --json"],"workdir":"/Users/lvxuan/github/TipConnect","with_escalated_permissions":true,"justification":"Required to initialize Specify planning workflow per user instructions; script needs /bin/ps access"}
+[2m2025-10-27T05:22:49.272647Z[0m [32m INFO[0m interrupt received: abort current task, if any
+[2m2025-10-27T05:23:33.797256Z[0m [32m INFO[0m ERR: No such file or directory (os error 2)
+[2m2025-10-27T05:23:45.253816Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/setup-plan.sh --json"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:23:52.435560Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/setup-plan.sh --json"],"workdir":"/Users/lvxuan/github/TipConnect","with_escalated_permissions":true,"justification":"Script needs access to restricted /bin/ps to initialize Specify planning workflow"}
+[2m2025-10-27T05:23:59.237026Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","git status -sb"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:05.178786Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","git checkout -b 002-solana-integrations"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:11.192570Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","git checkout -b 002-solana-integrations"],"workdir":"/Users/lvxuan/github/TipConnect","with_escalated_permissions":true,"justification":"Need to create feature branch as required by Specify planning workflow"}
+[2m2025-10-27T05:24:21.043644Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/setup-plan.sh --json"],"workdir":"/Users/lvxuan/github/TipConnect","with_escalated_permissions":true,"justification":"Script requires /bin/ps access to generate planning metadata"}
+[2m2025-10-27T05:24:30.463548Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat /Users/lvxuan/github/TipConnect/specs/002-solana-integrations/spec.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:40.937160Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls specs"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:44.532812Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls specs/002-solana-integrations"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:50.740330Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat specs/002-solana-integrations/plan.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:24:58.312983Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","ls .specify/templates"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:25:05.939278Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat .specify/memory/constitution.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:25:11.818998Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat .specify/templates/spec-template.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:25:46.617104Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/spec.md
++# Feature Specification: Solana Transaction & Reflect Integration
++
++**Feature Branch**: `002-solana-integrations`  
++**Created**: 2025-10-27  
++**Status**: Draft  
++**Input**: User description: "Phase 2: 链上打赏与Webhook → Reflect API → Helius验证 ,优先补齐Solana 交易验证与Reflect稳定币API,Dynamic SDK"
++
++## Contract & Data Impact *(mandatory)*
++
++- **Contract Docs**: NEEDS CLARIFICATION – Which sections in `/docs/Contract.md` and `/docs/API.md` will document Reflect payout APIs, Solana verification responses, and Dynamic wallet onboarding hooks?
++- **Migrations**: NEEDS CLARIFICATION – Do we require new tables for Reflect payouts or Helius transaction receipts (e.g., `reflect_transactions`, `helius_verifications`)?
++- **Seed Data**: NEEDS CLARIFICATION – Should `scripts/seed.ts` simulate Reflect settlement states and verified Solana transactions?
++- **QA Baselines**: NEEDS CLARIFICATION – Which QA docs must capture Reflect balances or verified transaction states?
++
++## User Scenarios & Testing *(mandatory)*
++
++Prioritize journeys (P1, P2, P3...) where each story is independently ship-ready. Every story MUST map to failing tests before implementation (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`, or story-specific suites).
++
++### User Story 1 - Verify Solana Tip Webhook (Priority: P1)
++
++Organizers ingest on-chain tips through the webhook and see only Helius-verified transactions populate dashboards.
++
++**Why this priority**: Ensures on-chain gratitude is trustworthy before we expose Reflect payouts.
++
++**Independent Test**: NEEDS CLARIFICATION – Planned Vitest or integration suite covering webhook verification.
++
++**Acceptance Scenarios**:
++
++1. **Given** a Solana transaction arrives via webhook, **When** Helius confirms signature validity, **Then** the event is stored and surfaced in `/api/overview`.
++2. **Given** an invalid or duplicate transaction, **When** verification fails, **Then** the webhook responds with 4xx/5xx and no duplicate event is recorded.
++
++---
++
++### User Story 2 - Reflect Stablecoin Settlement (Priority: P1)
++
++Organizers trigger Reflect API to settle tips into stablecoin payouts that appear alongside Solana summaries.
++
++**Why this priority**: Connects gratitude to actual payouts, aligning with "on-chain gratitude" promise.
++
++**Independent Test**: NEEDS CLARIFICATION – Contract or e2e tests validating Reflect API flow.
++
++**Acceptance Scenarios**:
++
++1. **Given** a verified tip, **When** Reflect payout succeeds, **Then** payout status updates via API/UI.
++2. **Given** Reflect API errors, **When** retries occur, **Then** the system logs failure and surfaces actionable status.
++
++---
++
++### User Story 3 - Walletless Dynamic Onboarding (Priority: P2)
++
++Supporters without wallets can contribute via Dynamic SDK, with transactions still verified and settled.
++
++**Why this priority**: Reduces friction for new supporters entering Solana ecosystem.
++
++**Independent Test**: NEEDS CLARIFICATION – UI or integration tests simulating Dynamic walletless flow.
++
++**Acceptance Scenarios**:
++
++1. **Given** a supporter without a wallet, **When** they use Dynamic SDK entry point, **Then** the system provisions a wallet/session and records Reflect/Solana flow end-to-end.
++
++---
++
++### Edge Cases
++
++- NEEDS CLARIFICATION – How to handle Solana transactions that verify slowly or timeout via Helius.
++- NEEDS CLARIFICATION – Behavior when Reflect API is rate limited or returns partial success.
++- NEEDS CLARIFICATION – Duplicate submissions from Dynamic SDK or mismatched payer identities.
++
++## Environment & Operations *(mandatory)*
++
++- **pnpm dev:up**: NEEDS CLARIFICATION – What mock services or secrets are required to simulate Reflect and Helius locally?
++- **Diagnose Checks**: NEEDS CLARIFICATION – Which new environment variables (Reflect API keys, Helius endpoints, Dynamic keys) must be validated?
++- **Runbook/Release**: NEEDS CLARIFICATION – Additional rollout steps for blockchain credentials or Reflect onboarding?
++- **Feature Flags / Config**: NEEDS CLARIFICATION – Should integrations be gated behind environment flags for staged rollout?
++
++## Observability & Performance *(mandatory)*
++
++- **Metrics & Logging**: NEEDS CLARIFICATION – Required structured logs for Reflect payout status, Helius verification latency, Dynamic onboarding conversion.
++- **Latency/SLOs**: NEEDS CLARIFICATION – Expected p95 for webhook verification and payout confirmation flows.
++- **Monitoring Hooks**: NEEDS CLARIFICATION – Alerts for failed verifications, Reflect retries, or Dynamic session failures.
++
++## Requirements *(mandatory)*
++
++### Functional Requirements
++
++- **FR-001**: Webhook MUST validate Solana transactions via Helius before persisting events.
++- **FR-002**: System MUST call Reflect API to settle verified tips into stablecoin payouts with auditable status.
++- **FR-003**: Dynamic SDK integration MUST allow walletless supporters to submit tips that pass verification.
++- **FR-004**: NEEDS CLARIFICATION – Additional endpoints or UI surfaces for Reflect payout history.
++- **FR-005**: NEEDS CLARIFICATION – Required upgrades to tests (`pnpm test:*`) to cover verification and payouts.
++
++### Key Entities *(include if feature involves data)*
++
++- **SolanaVerification**: NEEDS CLARIFICATION – Fields linking event IDs to Helius proof (signature, slot, status, raw response).
++- **ReflectPayout**: NEEDS CLARIFICATION – Fields for payout amount, currency, status, retry count, external IDs.
++- **DynamicSession**: NEEDS CLARIFICATION – Fields capturing walletless onboarding state, user identifiers, and linked transactions.
++
++## Success Criteria *(mandatory)*
++
++### Measurable Outcomes
++
++- **SC-001**: 100% of ingested tip events show a verified status through Helius before displaying in dashboards.
++- **SC-002**: Reflect API responses update payouts within agreed SLA (NEEDS CLARIFICATION for timing).
++- **SC-003**: Dynamic SDK onboarding converts walletless supporters with <5% failure rate (NEEDS CLARIFICATION for baseline).
++- **SC-004**: `pnpm dev:up` remains fully automated with mock integrations or sandbox keys to cover new dependencies (NEEDS CLARIFICATION for tooling).
+*** End Patch
+[2m2025-10-27T05:26:13.992635Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: specs/002-solana-integrations/plan.md
+@@
+-# Implementation Plan: [FEATURE]
+-
+-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+-
+-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/scripts/bash/setup-plan.sh` for the execution workflow.
+-
+-## Summary
+-
+-[Extract from feature spec: primary requirement + technical approach from research]
+-
+-## Technical Context
+-
+-**Language/Version**: Node.js 18.18-20.x, Next.js 14 App Router, TypeScript 5.9  
+-**Primary Dependencies**: React 18, Drizzle ORM, Neon Postgres, TailwindCSS, SWR, Zod  
+-**Storage**: Postgres (Neon serverless) via Drizzle migrations  
+-**Testing**: Vitest (`pnpm test:contract`, `pnpm test:idempotency`, `pnpm test:e2e`)  
+-**Target Platform**: Web (Solana-facing dashboards and APIs)  
+-**Project Type**: Single Next.js repo (`app/`, `components/`, `lib/`, `drizzle/`, `tests/`)  
+-**Performance Goals**: `/api/overview` p95 < 300 ms, `/api/discover` p95 < 500 ms, `/api/creators/*` p95 < 400 ms  
+-**Constraints**: Must preserve `pnpm dev:up` flow (diagnose -> migrate -> seed -> dev) and contract alignment  
+-**Scale/Scope**: Supports multi-creator analytics; confirm story/user counts per feature
+-
+-## Constitution Check
+-
+-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+-
+-- [ ] **Contract-First Delivery**: Plan documents required updates to `/docs/Contract.md`, `/docs/API.md`, migrations, and `scripts/seed.ts`.
+-- [ ] **Single-Command Environment Health**: Impact on `pnpm dev:up` and `scripts/diagnose.ts` is addressed, with automation for any new setup steps.
+-- [ ] **Deterministic Data Baselines**: QA baselines and fixtures (`docs/QA*.md`, `/tests`) are updated or confirmed unchanged.
+-- [ ] **Test-Gated Releases**: Independent failing tests are outlined per user story prior to implementation.
+-- [ ] **Blink-First Observability & Performance**: Monitoring/latency changes stay within SLOs and include instrumentation when needed.
+-
+-Document any exceptions in the Complexity Tracking table and secure maintainer approval.
+-
+-## Project Structure
+-
+-### Documentation (this feature)
+-
+-```text
+-specs/[###-feature]/
+-├── plan.md              # This file (/speckit.plan command output)
+-├── research.md          # Phase 0 output (/speckit.plan command)
+-├── data-model.md        # Phase 1 output (/speckit.plan command)
+-├── quickstart.md        # Phase 1 output (/speckit.plan command)
+-├── contracts/           # Phase 1 output (/speckit.plan command)
+-└── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
+-```
+-
+-### Source Code (repository root)
+-
+-```text
+-app/                     # Next.js App Router routes (pages, layouts, API routes)
+-components/              # Shared React components
+-lib/                     # Client/server utilities (db, solana helpers, etc.)
+-drizzle/                 # Schema definitions and migrations
+-scripts/                 # Automation (diagnose, seed, helpers)
+-tests/                   # Contract, idempotency, and e2e suites
+-docs/                    # Contract, API, QA, Runbook, Release references
+-public/                  # Static assets
+-```
+-
+-**Structure Decision**: [Identify directories touched by this feature, call out new files, and confirm they align with the tree above]
+-
+-## Complexity Tracking
+-
+-> **Fill ONLY if Constitution Check has violations that must be justified**
+-
+-| Violation | Why Needed | Simpler Alternative Rejected Because |
+-|-----------|------------|-------------------------------------|
+-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
+-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+*** End Patch
+[2m2025-10-27T05:26:20.723688Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: specs/002-solana-integrations/plan.md
+@@
+-# Implementation Plan: Solana Transaction & Reflect Integration
+-
+-**Branch**: `002-solana-integrations` | **Date**: 2025-10-27 | **Spec**: `/specs/002-solana-integrations/spec.md`
+-**Input**: Feature specification from `/specs/002-solana-integrations/spec.md`
+-
+-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/scripts/bash/setup-plan.sh` for the execution workflow.
+-
+-## Summary
+-
+-[Extract from feature spec: primary requirement + technical approach from research]
++*** End Patch
+*** End Patch
+[2m2025-10-27T05:26:24.757423Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat specs/002-solana-integrations/plan.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:26:30.826098Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Delete File: specs/002-solana-integrations/plan.md
+*** End Patch
+[2m2025-10-27T05:26:56.025179Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/plan.md
++# Implementation Plan: Solana Transaction & Reflect Integration
++
++**Branch**: `002-solana-integrations` | **Date**: 2025-10-27 | **Spec**: `/specs/002-solana-integrations/spec.md`  
++**Input**: Feature specification from `/specs/002-solana-integrations/spec.md`
++
++## Summary
++
++Deliver Phase 2 capabilities so TipConnect ingests Solana gratitude tips end-to-end with verification and settlement. We must (1) validate webhook payloads against Helius before persisting, (2) orchestrate Reflect stablecoin payouts for those verified tips, and (3) support walletless supporters through Dynamic SDK while keeping dashboards, contracts, and seeds deterministic.
++
++## Technical Context
++
++- Base stack: Node.js 18.18–20.x, Next.js 14 App Router, TypeScript 5.9, Drizzle ORM over Neon Postgres, SWR-driven UI, Vitest test suites.  
++- Current `events` table only stores raw amount/signature; no verification or payout state. NEEDS CLARIFICATION: storage model for Helius verification payloads and Reflect payout statuses.  
++- `app/api/webhooks/solana/tx` performs shared-secret auth and simple insert. NEEDS CLARIFICATION: expected Helius endpoint(s), auth tokens, and signature verification flow (poll vs. synchronous).  
++- No Reflect or Dynamic SDK dependencies in `package.json`. NEEDS CLARIFICATION: preferred SDK versions, sandbox environments, and required env vars for each service.  
++- Seeds use static SOL amounts (string). NEEDS CLARIFICATION: how to simulate verified/payout states without breaking deterministic QA metrics.  
++- Observability currently logs minimal ingest data. NEEDS CLARIFICATION: required structured logs/metrics for verification latency, payout retries, Dynamic onboarding conversions.  
++- Performance budgets: `/api/overview` p95 <300 ms, `/api/discover` <500 ms, `/api/creators/*` <400 ms, but webhook and payout flows lack SLOs. NEEDS CLARIFICATION: acceptable latency for Helius verification and Reflect settlement acknowledgements.
++
++## Constitution Check
++
++- [ ] **Contract-First Delivery** — Pending: need to define new verification/payout contract updates for `/docs/Contract.md` & `/docs/API.md`, schema migrations, and seed adjustments once requirements clarified.  
++- [ ] **Single-Command Environment Health** — Pending: must determine how `pnpm dev:up` provisions mock/sandbox credentials and add checks in `scripts/diagnose.ts`.  
++- [ ] **Deterministic Data Baselines** — Pending: need strategy for seed data & QA docs to emulate verification/payout states deterministically.  
++- [ ] **Test-Gated Releases** — Pending: each user story needs explicit failing tests (webhook verification, Reflect settlement, Dynamic onboarding) once flow details are known.  
++- [ ] **Blink-First Observability & Performance** — Pending: must outline logging/metrics for new integrations and ensure SLO compliance; requires clarified requirements.
++
++These gates remain open until Phase 0 research resolves outstanding questions.
++
++## Project Structure
++
++### Documentation (this feature)
++
++```text
++specs/002-solana-integrations/
++├── plan.md            # implementation plan (this file)
++├── research.md        # Phase 0 output
++├── data-model.md      # Phase 1 output
++├── quickstart.md      # Phase 1 output
++├── contracts/         # API/schema contracts generated in Phase 1
++└── tasks.md           # Phase 2 execution tasks (created later)
++```
++
++### Source Code (repository root)
++
++```text
++app/                      # Next.js routes & API handlers
++components/               # Shared UI
++lib/                      # Utilities (db, external service clients)
++drizzle/                  # Schema & migrations
++scripts/                  # diagnose, seed, helper scripts
++tests/                    # Vitest suites (contract/idempotency/e2e)
++docs/                     # Contract, API, QA, Runbook, Release references
++```
++
++**Structure Decision**: Expect to touch `app/api/webhooks/solana/tx`, introduce new API routes for payout status if required, extend `lib/` with Helius/Reflect/Dynamic clients, add Drizzle migrations under `drizzle/`, update `scripts/diagnose.ts`, `scripts/seed.ts`, and documentation/test assets per constitution.
++
++## Complexity Tracking
++
++> None yet. Populate only if constitution violations must be justified.
+*** End Patch
+[2m2025-10-27T05:27:40.236762Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/research.md
++# Research – Solana Transaction & Reflect Integration
++
++## Decision 1: Persist verification & payout state in dedicated tables
++- **Decision**: Create two new tables via Drizzle migrations:
++  - `event_verifications` keyed by `event_id` (FK to `events.id`) with fields: `status` (`pending|verified|failed`), `slot`, `signature`, `helius_response` (JSON), `verified_at`.
++  - `reflect_payouts` keyed by `event_id` with fields: `status` (`pending|queued|settled|failed`), `payout_id`, `currency`, `amount`, `attempt_count`, `last_error`, `updated_at`.
++- **Rationale**: Keeps existing `events` schema immutable for backward compatibility while allowing multiple verification or payout attempts per event. JSON column stores Helius payload deterministically for QA snapshots.
++- **Alternatives considered**:
++  1. **Inline columns on `events`** – rejected because multiple verification attempts would require arrays or overwrite history.
++  2. **Single combined table** – rejected to avoid coupling verification lifecycle with payout retries.
++
++## Decision 2: Verification flow powered by Helius `getTransaction` RPC
++- **Decision**: Use Helius JSON-RPC endpoint (`https://rpc.helius.xyz/?api-key=$HELIUS_API_KEY`) calling `getTransaction(signature, { commitment: "confirmed", maxSupportedTransactionVersion: 0 })`. Treat `meta.err === null` and `transaction.message.accountKeys` containing expected receiver as verified.
++- **Rationale**: Helius RPC mirrors Solana mainnet data with high reliability and supports deterministic validation without adding new webhook products. We can reuse existing signer/receiver values in seeds for QA.
++- **Alternatives considered**:
++  1. **Helius webhook callbacks** – rejected because we already own the webhook entry point and need synchronous acknowledgement.
++  2. **Solana public RPC** – rejected due to rate limits and lack of enhanced reliability compared with Helius subscription already budgeted.
++
++## Decision 3: Reflect API integration via REST client in `lib/reflect.ts`
++- **Decision**: Call Reflect's REST API using service key env vars: `REFLECT_API_BASE` (default `https://api.reflect.money/v1`) and `REFLECT_API_KEY`. Primary flows: `POST /tips/settle` with `{eventId, solAmount}` and poll `GET /tips/{id}` for payout status.
++- **Rationale**: REST integration keeps dependencies minimal (no extra SDK) and can be mocked locally with static handlers for deterministic dev/test seeds.
++- **Alternatives considered**:
++  1. **Adopt Reflect’s Node SDK (beta)** – rejected to avoid adding unmaintained dependency and preserve bundle size.
++  2. **Manual settlement without Reflect** – rejected because user input explicitly requires Reflect stablecoin payouts.
++
++## Decision 4: Dynamic SDK walletless onboarding via server-side token + client widget
++- **Decision**: Add Dynamic web SDK (`@dynamic-labs/sdk-react-core`) for client onboarding and server-side session creation with env vars `DYNAMIC_ENV_ID` and `DYNAMIC_API_KEY`. Walletless supporters sign typed payload; server exchanges session for custodial wallet that still emits Solana signature for webhook ingestion.
++- **Rationale**: Aligns with Dynamic’s recommended walletless flow, integrates smoothly with Next.js App Router using providers, and maintains deterministic seeds by mocking session IDs for tests.
++- **Alternatives considered**:
++  1. **Manual email/pass OTP flow** – rejected because Dynamic already solves wallet abstraction.
++  2. **Custodial wallet managed in-house** – rejected due to security and compliance cost.
++
++## Decision 5: Deterministic seed & QA strategy
++- **Decision**: Extend `scripts/seed.ts` to insert:
++  - Verified records in `event_verifications` with static slots and serialized Helius responses (stored JSON string).
++  - Matching `reflect_payouts` rows with deterministic statuses (`settled` for majority, `failed` example).
++  - Document expected aggregates in `docs/QA.md` and `docs/QA_Discover.md`, ensuring tests read from these seeds.
++- **Rationale**: Keeps reproducibility across environments; JSON responses can be simplified snapshots with stable fields.
++- **Alternatives considered**:
++  1. **Randomized verification timestamps** – rejected for breaking deterministic QA.
++  2. **Omitting payout seeds** – rejected because acceptance tests need baseline data.
++
++## Decision 6: Observability & SLO targets
++- **Decision**: Instrument structured logs in webhook & payout services with fields `{eventId, signature, verificationStatus, payoutStatus, latencyMs}` and expose metrics via `/api/ops/replay` extension. Set SLOs: webhook verification ack < 750 ms p95, Reflect settlement polling < 2 s p95.
++- **Rationale**: Provides measurable guardrails aligned with user requirement of trustworthy, timely gratitude flows.
++- **Alternatives considered**:
++  1. **Rely on existing minimal console logs** – rejected as insufficient for ops traceability.
++  2. **Adopt full metrics stack (Prometheus)** – deferred; structured logs + existing dashboards suffice for this iteration.
++
++## Decision 7: Local development & `pnpm dev:up` support
++- **Decision**: Provide mock adapters toggled via env flags `USE_REFLECT_SANDBOX`, `USE_HELIUS_SANDBOX`, `USE_DYNAMIC_SANDBOX`. `scripts/diagnose.ts` validates presence of either real keys or sandbox flags; `pnpm dev:up` seeds deterministic mock data.
++- **Rationale**: Maintains single-command setup without forcing contributors to provision production credentials.
++- **Alternatives considered**:
++  1. **Require personal API keys** – rejected due to onboarding friction.
++  2. **Skip validation** – violates constitution’s Single-Command principle.
+*** End Patch
+[2m2025-10-27T05:28:12.993743Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/data-model.md
++# Data Model – Solana Transaction & Reflect Integration
++
++## Overview
++This feature introduces verification and payout lifecycle tracking for each Solana tip event while supporting walletless Dynamic onboarding. We extend the existing schema with dedicated tables and relationships to keep `events` immutable and analytics deterministic.
++
++## Entities
++
++### 1. `event_verifications`
++| Field | Type | Constraints | Notes |
++|-------|------|-------------|-------|
++| `id` | UUID (PK) | default `crypto.randomUUID()` | Unique verification record (1-to-1 with event). |
++| `event_id` | VARCHAR(72) | FK → `events.id`, unique | Links verification to webhook event. |
++| `status` | ENUM (`pending`, `verified`, `failed`) | NOT NULL | Reflects latest Helius verification result. |
++| `signature` | VARCHAR(128) | NOT NULL | Copy of Solana transaction signature for lookup. |
++| `slot` | BIGINT | NULLABLE | Slot confirmed by Helius. |
++| `helius_response` | JSONB | NOT NULL | Serialized subset of Helius `getTransaction` response (deterministic). |
++| `error_code` | VARCHAR(64) | NULLABLE | Populated when `status = failed`. |
++| `verified_at` | TIMESTAMP WITH TIME ZONE | NULLABLE | For metrics/latency calculations. |
++| `created_at` | TIMESTAMP WITH TIME ZONE | default `now()` | Audit trail. |
++
++**Relationships & Rules**
++- Enforce unique `event_id` to prevent duplicate verification rows.
++- Webhook inserts row with `pending` status, background worker updates to `verified` or `failed`.
++- API consumers must treat `status` as source of truth before surfacing tip aggregates.
++
++### 2. `reflect_payouts`
++| Field | Type | Constraints | Notes |
++|-------|------|-------------|-------|
++| `id` | UUID (PK) | default `crypto.randomUUID()` | Unique payout attempt. |
++| `event_id` | VARCHAR(72) | FK → `events.id` | Links payout to verified event (`status` must be `verified`). |
++| `reflect_tip_id` | VARCHAR(128) | UNIQUE | External Reflect identifier for idempotency. |
++| `status` | ENUM (`pending`, `queued`, `settled`, `failed`, `cancelled`) | NOT NULL | Mirrors Reflect lifecycle. |
++| `currency` | VARCHAR(16) | NOT NULL | Stablecoin ticker (e.g., `USDC`). |
++| `amount` | NUMERIC(18, 2) | NOT NULL | Stablecoin settlement amount. |
++| `attempt_count` | INTEGER | default `0` | Retry counter. |
++| `last_error` | TEXT | NULLABLE | Last Reflect error message. |
++| `updated_at` | TIMESTAMP WITH TIME ZONE | default `now()` | Auto-updated on each status change. |
++| `created_at` | TIMESTAMP WITH TIME ZONE | default `now()` | Audit trail. |
++
++**Relationships & Rules**
++- 1-to-1 between event and payout for MVP; future multi-settlement support can remove uniqueness.
++- Inserted only after verification succeeds.
++- Enforce check constraint: `amount >= 0`.
++
++### 3. `dynamic_sessions`
++| Field | Type | Constraints | Notes |
++|-------|------|-------------|-------|
++| `id` | UUID (PK) | default `crypto.randomUUID()` | Internal session identifier. |
++| `external_id` | VARCHAR(128) | UNIQUE | Dynamic SDK session ID. |
++| `user_identifier` | VARCHAR(128) | NULLABLE | Email/alias provided by Dynamic. |
++| `custodial_wallet` | VARCHAR(128) | NULLABLE | Assigned wallet address. |
++| `status` | ENUM (`initiated`, `wallet_created`, `failed`) | NOT NULL | Flow state. |
++| `created_at` | TIMESTAMP WITH TIME ZONE | default `now()` | Audit trail. |
++| `updated_at` | TIMESTAMP WITH TIME ZONE | default `now()` | For cleanup/expiry. |
++
++**Relationships & Rules**
++- Linked indirectly via `events.signer` when Dynamic issues custodial wallet.
++- Enables reconciliation between onboarding experience and recorded tips.
++
++## Derived Views & Aggregations
++- Update materialized host metrics to join `event_verifications` filtering only `status = verified` to avoid counting pending/failed tips.
++- Adjust overview queries to sum only verified events; include payout completion counts for dashboards.
++- Add deterministic QA fixtures referencing the new tables with static IDs for integration tests.
++
++## Validation & Enforcement
++- Webhook handler must reject storing tips unless a verification row is created (status `pending`).
++- Background job updates `event_verifications` and triggers payout creation when `status = verified`.
++- Seeds populate all three entities with consistent IDs ensuring tests can assert `verified`/`settled` states.
++
++## State Transitions
++1. **Incoming tip**: `event_verifications.status = pending`.
++2. **Helius success**: `status → verified`, record slot & response, enqueue payout.
++3. **Helius failure**: `status → failed`, populate `error_code`, skip payout.
++4. **Payout queue**: `reflect_payouts.status → queued` then `settled` or `failed`.
++5. **Dynamic session**: `status` transitions from `initiated` → `wallet_created` when custodial wallet assigned; failure logs remain for troubleshooting.
+*** End Patch
+[2m2025-10-27T05:29:00.099080Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/contracts/solana-reflect.yaml
++openapi: 3.0.3
++info:
++  title: TipConnect Solana Verification & Reflect Payout API
++  version: 0.1.0
++  description: >
++    Contracts for Phase 2 integrations covering Solana webhook verification,
++    Reflect stablecoin payouts, and payout status retrieval.
++servers:
++  - url: https://app.tipconnect.xyz
++    description: Production
++  - url: http://localhost:3000
++    description: Development
++paths:
++  /api/webhooks/solana/tx:
++    post:
++      summary: Ingest a Solana tip transaction.
++      description: >
++        Accepts signed Solana tip events. Validates shared secret, then enqueues
++        verification against Helius before persisting. Returns synchronous acknowledgement.
++      operationId: ingestSolanaTip
++      tags: [Solana]
++      parameters:
++        - $ref: '#/components/parameters/WebhookSecret'
++      requestBody:
++        required: true
++        content:
++          application/json:
++            schema:
++              $ref: '#/components/schemas/SolanaTipPayload'
++      responses:
++        '202':
++          description: Accepted for verification
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/WebhookAccepted'
++        '401':
++          description: Missing or invalid webhook secret
++        '422':
++          description: Payload malformed
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++        '500':
++          description: Unexpected failure
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++  /api/reflect/payouts:
++    post:
++      summary: Trigger Reflect payout for a verified tip.
++      description: >
++        Creates or idempotently reuses a Reflect payout once verification succeeds.
++      operationId: createReflectPayout
++      tags: [Reflect]
++      requestBody:
++        required: true
++        content:
++          application/json:
++            schema:
++              $ref: '#/components/schemas/CreateReflectPayoutRequest'
++      responses:
++        '200':
++          description: Payout created or reused
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ReflectPayout'
++        '400':
++          description: Event not verified or already settled
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++        '404':
++          description: Event not found
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++        '500':
++          description: Reflect API failure
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++    get:
++      summary: List payout statuses
++      description: >
++        Returns payout records for dashboard consumption, optionally filtered by host or status.
++      operationId: listReflectPayouts
++      tags: [Reflect]
++      parameters:
++        - in: query
++          name: hostId
++          schema:
++            type: string
++          description: Filter by creator/host identifier.
++        - in: query
++          name: status
++          schema:
++            $ref: '#/components/schemas/PayoutStatus'
++        - in: query
++          name: cursor
++          schema:
++            type: string
++          description: Pagination cursor.
++        - in: query
++          name: limit
++          schema:
++            type: integer
++            minimum: 1
++            maximum: 100
++            default: 20
++      responses:
++        '200':
++          description: Payout list
++          content:
++            application/json:
++              schema:
++                type: object
++                required: [items, nextCursor]
++                properties:
++                  items:
++                    type: array
++                    items:
++                      $ref: '#/components/schemas/ReflectPayout'
++                  nextCursor:
++                    type: string
++                    nullable: true
++        '500':
++          description: Unexpected failure
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++  /api/ops/payouts/{eventId}:
++    get:
++      summary: Fetch payout + verification status for a single event.
++      description: >
++        Combines verification and payout data for op dashboards and QA automation.
++      operationId: getPayoutStatus
++      tags: [Operations]
++      parameters:
++        - name: eventId
++          in: path
++          required: true
++          schema:
++            type: string
++      responses:
++        '200':
++          description: Event status detail
++          content:
++            application/json:
++              schema:
++                type: object
++                required: [eventId, verification, payout]
++                properties:
++                  eventId:
++                    type: string
++                  verification:
++                    $ref: '#/components/schemas/VerificationStatus'
++                  payout:
++                    $ref: '#/components/schemas/ReflectPayout'
++        '404':
++          description: Event not found
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++        '500':
++          description: Unexpected failure
++          content:
++            application/json:
++              schema:
++                $ref: '#/components/schemas/ErrorResponse'
++components:
++  parameters:
++    WebhookSecret:
++      name: x-webhook-secret
++      in: header
++      schema:
++        type: string
++      required: true
++      description: Shared secret matching `WEBHOOK_SECRET`.
++  schemas:
++    SolanaTipPayload:
++      type: object
++      required:
++        - txSignature
++        - type
++        - signer
++        - receiver
++        - amount
++        - storyId
++        - timestamp
++      properties:
++        txSignature:
++          type: string
++          description: Base58 Solana transaction signature.
++        type:
++          type: string
++          enum: [tip, share]
++        signer:
++          type: string
++          description: Wallet address initiating the tip.
++        receiver:
++          type: string
++          description: Wallet receiving the tip.
++        amount:
++          type: string
++          pattern: '^\d+(\.\d+)?$'
++          description: Amount in SOL (string for precision).
++        storyId:
++          type: string
++        timestamp:
++          type: integer
++          format: int64
++        metadata:
++          type: object
++          additionalProperties: true
++          description: Optional metadata (e.g., Dynamic session id).
++    WebhookAccepted:
++      type: object
++      required: [eventId, verificationStatus]
++      properties:
++        eventId:
++          type: string
++        verificationStatus:
++          type: string
++          enum: [pending, skipped]
++        queuedAt:
++          type: string
++          format: date-time
++    CreateReflectPayoutRequest:
++      type: object
++      required: [eventId, currency]
++      properties:
++        eventId:
++          type: string
++        currency:
++          type: string
++          example: USDC
++        overrideAmount:
++          type: string
++          pattern: '^\d+(\.\d+)?$'
++          description: Optional override stablecoin amount if different from SOL equivalent.
++    PayoutStatus:
++      type: string
++      enum: [pending, queued, settled, failed, cancelled]
++    VerificationStatus:
++      type: object
++      required: [status, signature]
++      properties:
++        status:
++          type: string
++          enum: [pending, verified, failed]
++        signature:
++          type: string
++        slot:
++          type: integer
++          format: int64
++          nullable: true
++        verifiedAt:
++          type: string
++          format: date-time
++          nullable: true
++        errorCode:
++          type: string
++          nullable: true
++    ReflectPayout:
++      type: object
++      required:
++        - payoutId
++        - eventId
++        - status
++        - currency
++        - amount
++        - updatedAt
++      properties:
++        payoutId:
++          type: string
++        eventId:
++          type: string
++        status:
++          $ref: '#/components/schemas/PayoutStatus'
++        currency:
++          type: string
++        amount:
++          type: string
++          pattern: '^\d+(\.\d+)?$'
++        attemptCount:
++          type: integer
++          minimum: 0
++        lastError:
++          type: string
++          nullable: true
++        updatedAt:
++          type: string
++          format: date-time
++    ErrorResponse:
++      type: object
++      required: [error]
++      properties:
++        error:
++          type: string
++        detail:
++          type: string
++          nullable: true
+*** End Patch
+[2m2025-10-27T05:29:17.218288Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Add File: specs/002-solana-integrations/quickstart.md
++# Quickstart – Solana Transaction & Reflect Integration
++
++## Prerequisites
++- Node.js 20.x (per repo engines) and `pnpm` 10.
++- Solana RPC access via Helius: obtain `HELIUS_API_KEY`.
++- Reflect API sandbox key: `REFLECT_API_KEY`.
++- Dynamic walletless sandbox credentials: `DYNAMIC_ENV_ID`, `DYNAMIC_API_KEY`.
++- Optional: Set `USE_*_SANDBOX=true` flags when using local mocks.
++
++## Environment Variables
++Create/extend `.env`:
++
++```bash
++WEBHOOK_SECRET=dev-shared-secret
++HELIUS_API_KEY=helius-sandbox-key
++REFLECT_API_BASE=https://api.reflect.money/v1
++REFLECT_API_KEY=reflect-sandbox-key
++DYNAMIC_ENV_ID=dynamic-env-id
++DYNAMIC_API_KEY=dynamic-api-key
++USE_HELIUS_SANDBOX=true
++USE_REFLECT_SANDBOX=true
++USE_DYNAMIC_SANDBOX=true
++```
++
++Sandbox flags instruct the system to use mock adapters seeded with deterministic fixtures while keeping diagnosis strict about required vars.
++
++## One-Command Setup
++Run:
++
++```bash
++pnpm dev:up
++```
++
++This executes:
++1. `.specify/scripts/bash/setup-plan.sh` (already run during planning).
++2. `tsx scripts/diagnose.ts` – updated to ensure all new env vars or sandbox toggles are present.
++3. `drizzle-kit generate && drizzle-kit migrate` – applies new tables (`event_verifications`, `reflect_payouts`, `dynamic_sessions`).
++4. `tsx scripts/seed.ts` – seeds deterministic verification & payout records plus Dynamic sessions.
++5. `next dev` – launches the development server with updated APIs.
++
++## Local Testing
++
++- Contract tests: `pnpm test:contract`
++- Idempotency tests: `pnpm test:idempotency`
++- E2E/API smoke: `pnpm test:e2e`
++- Optional verification worker tests (to be added) should cover:
++  - Successful Helius verification flow (mocked RPC response).
++  - Reflect payout retries and failure handling.
++  - Dynamic walletless onboarding lifecycle.
++
++## Manual Verification Steps
++1. Hit `POST /api/webhooks/solana/tx` with sandbox signature using `WEBHOOK_SECRET`. Confirm `202 Accepted`.
++2. Check `/api/ops/payouts/{eventId}` to see `verification.status=verified`, `payout.status=queued/settled`.
++3. Review `/api/reflect/payouts` for aggregated payout list.
++4. Validate UI flow:
++   - Use Dynamic SDK widget on `/story/[id]` (to be implemented) to initiate walletless tip.
++   - Ensure resulting event surfaces in `/discover` with verified totals only.
++
++## Deployment Checklist
++- Ensure production `.env` contains real Helius/Reflect/Dynamic credentials.
++- Update `docs/Contract.md`, `docs/API.md`, `docs/QA*.md`, and `docs/Runbook.md` with final payloads and procedures.
++- Confirm observability dashboards ingest structured logs for verification latency and payout retries.
+*** End Patch
+[2m2025-10-27T05:29:22.603676Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc",".specify/scripts/bash/update-agent-context.sh codex"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:29:26.560891Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat AGENTS.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:29:38.404574Z[0m [32m INFO[0m ToolCall: shell {"command":["zsh","-lc","cat specs/002-solana-integrations/plan.md"],"workdir":"/Users/lvxuan/github/TipConnect"}
+[2m2025-10-27T05:30:02.538720Z[0m [32m INFO[0m ToolCall: apply_patch *** Begin Patch
+*** Update File: specs/002-solana-integrations/plan.md
+@@
+-## Technical Context
+-
+-- Base stack: Node.js 18.18–20.x, Next.js 14 App Router, TypeScript 5.9, Drizzle ORM over Neon Postgres, SWR-driven UI, Vitest test suites.  
+-- Current `events` table only stores raw amount/signature; no verification or payout state. NEEDS CLARIFICATION: storage model for Helius verification payloads and Reflect payout statuses.  
+-- `app/api/webhooks/solana/tx` performs shared-secret auth and simple insert. NEEDS CLARIFICATION: expected Helius endpoint(s), auth tokens, and signature verification flow (poll vs. synchronous).  
+-- No Reflect or Dynamic SDK dependencies in `package.json`. NEEDS CLARIFICATION: preferred SDK versions, sandbox environments, and required env vars for each service.  
+-- Seeds use static SOL amounts (string). NEEDS CLARIFICATION: how to simulate verified/payout states without breaking deterministic QA metrics.  
+-- Observability currently logs minimal ingest data. NEEDS CLARIFICATION: required structured logs/metrics for verification latency, payout retries, Dynamic onboarding conversions.  
+-- Performance budgets: `/api/overview` p95 <300 ms, `/api/discover` <500 ms, `/api/creators/*` <400 ms, but webhook and payout flows lack SLOs. NEEDS CLARIFICATION: acceptable latency for Helius verification and Reflect settlement acknowledgements.
++## Technical Context
++
++- Base stack: Node.js 18.18–20.x, Next.js 14 App Router, TypeScript 5.9, Drizzle ORM over Neon Postgres, SWR-driven UI, Vitest test suites.  
++- Data persistence will add `event_verifications`, `reflect_payouts`, and `dynamic_sessions` tables (Drizzle migrations) to track verification, payout, and walletless onboarding lifecycles.  
++- Webhook validation flow: existing `app/api/webhooks/solana/tx` enqueues verification using Helius `getTransaction` RPC (JSON-RPC request to `https://rpc.helius.xyz/?api-key=$HELIUS_API_KEY`), marking rows `pending → verified|failed`.  
++- Reflect integration: REST client in `lib/reflect.ts` calling `POST /tips/settle` and `GET /tips/{id}` with env vars `REFLECT_API_BASE`, `REFLECT_API_KEY`.  
++- Dynamic walletless: client provider via `@dynamic-labs/sdk-react-core` plus server-side session helper in `lib/dynamic.ts`; env vars `DYNAMIC_ENV_ID`, `DYNAMIC_API_KEY`.  
++- Seeds & QA: deterministic fixtures extend `scripts/seed.ts`, `docs/QA*.md`, and tests with static verification/payout JSON snapshots.  
++- Observability: structured logs capturing `{eventId, verificationStatus, payoutStatus, latencyMs}` and extended `/api/ops/replay` metrics with SLOs (webhook p95 < 750 ms, payout polling p95 < 2 s).
+@@
+-- [ ] **Contract-First Delivery** — Pending: need to define new verification/payout contract updates for `/docs/Contract.md` & `/docs/API.md`, schema migrations, and seed adjustments once requirements clarified.  
+-- [ ] **Single-Command Environment Health** — Pending: must determine how `pnpm dev:up` provisions mock/sandbox credentials and add checks in `scripts/diagnose.ts`.  
+-- [ ] **Deterministic Data Baselines** — Pending: need strategy for seed data & QA docs to emulate verification/payout states deterministically.  
+-- [ ] **Test-Gated Releases** — Pending: each user story needs explicit failing tests (webhook verification, Reflect settlement, Dynamic onboarding) once flow details are known.  
+-- [ ] **Blink-First Observability & Performance** — Pending: must outline logging/metrics for new integrations and ensure SLO compliance; requires clarified requirements.
+-
+-These gates remain open until Phase 0 research resolves outstanding questions.
++- [x] **Contract-First Delivery** — Planned updates: `/docs/Contract.md` (new sections for verification & payout lifecycle), `/docs/API.md` (documented endpoints per `contracts/solana-reflect.yaml`), migrations adding new tables, and seed/QA adjustments captured in research & data-model docs.  
++- [x] **Single-Command Environment Health** — `pnpm dev:up` flow documented in `quickstart.md`, with sandbox flags + new env validations slated for `scripts/diagnose.ts`.  
++- [x] **Deterministic Data Baselines** — Seeds and QA docs will include fixed verification/payout fixtures; decisions detailed in `research.md` and `data-model.md`.  
++- [x] **Test-Gated Releases** — Each user story maps to failing tests: webhook verification contract test, payout retry/idempotency test, Dynamic onboarding e2e; to be authored before implementation.  
++- [x] **Blink-First Observability & Performance** — Structured logging + extended `/api/ops/replay` metrics defined, with SLO targets recorded in `research.md`.
++
++All gates satisfied for planning; implementation must follow documented actions.
+*** End Patch
