@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
         status: current.status as "pending" | "verified" | "failed",
         signature: current.signature,
         slot: current.slot ?? null,
-        heliusResponse: current.heliusResponse,
+        heliusResponse: current.heliusResponse as Record<string, unknown>,
         errorCode: current.errorCode ?? null,
         verifiedAt: current.verifiedAt ?? null
       };

@@ -13,7 +13,7 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <DynamicContextProvider
       settings={{
-        environmentId: process.env.NEXT_PUBLIC_DYNAMIC_ENV_ID!,
+        environmentId: process.env.DYNAMIC_ENV_ID!,
         walletConnectors: [SolanaWalletConnectors]
       }}
     >

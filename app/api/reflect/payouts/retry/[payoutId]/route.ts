@@ -128,7 +128,7 @@ export async function POST(req: NextRequest, { params }: { params: { payoutId: s
       .set({
         status: retryResult.payout.status,
         reflectTipId: retryResult.payout.reflectTipId || payout.reflectTipId,
-        amount: retryResult.payout.amount,
+        amount: retryResult.payout.amount?.toString(),
         currency: retryResult.payout.currency,
         attemptCount,
         lastError: retryResult.error ?? retryResult.payout.lastError ?? null,

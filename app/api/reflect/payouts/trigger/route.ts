@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       reflectTipId: payoutResult.payout.reflectTipId,
       status: payoutResult.payout.status,
       currency: payoutResult.payout.currency,
-      amount: payoutResult.payout.amount,
+      amount: payoutResult.payout.amount?.toString(),
       attemptCount: payoutResult.payout.attemptCount,
       lastError: payoutResult.payout.lastError,
       updatedAt: payoutResult.payout.updatedAt,
