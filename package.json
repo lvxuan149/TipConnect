@@ -19,6 +19,8 @@
     "dev:clean": "lsof -ti:3000-3010 | xargs kill -9 || true && pnpm dev"
   },
   "dependencies": {
+    "@dynamic-labs/sdk-react-core": "^4.40.1",
+    "@dynamic-labs/solana": "^4.40.1",
     "@neondatabase/serverless": "^0.10.4",
     "drizzle-orm": "^0.36.0",
     "framer-motion": "^12.23.24",

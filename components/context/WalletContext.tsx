@@ -1,5 +1,6 @@
 'use client';
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
+import { useDynamicContext, useIsLoggedIn, useUserWallets } from "@dynamic-labs/sdk-react-core";
 
 interface WalletContextType {
   walletConnected: boolean;
@@ -11,28 +12,20 @@ interface WalletContextType {
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
 export function WalletProvider({ children }: { children: ReactNode }) {
-  const [walletConnected, setConnected] = useState(false);
-  const [walletAddress, setAddress] = useState<string | null>(null);
+  const { setShowAuthFlow, handleLogOut } = useDynamicContext();
+  const isLoggedIn = useIsLoggedIn();
+  const userWallets = useUserWallets();
 
-  // 模拟加载缓存（未来可替换为 Phantom adapter）
-  useEffect(() => {
-    const cached = localStorage.getItem("walletConnected");
-    if (cached === "true") {
-      setConnected(true);
-      setAddress("demoUser.sol");
-    }
-  }, []);
+  const walletConnected = isLoggedIn && userWallets.length > 0;
+  const walletAddress = userWallets.length > 0 ?
+    `${userWallets[0].address.slice(0, 6)}...${userWallets[0].address.slice(-4)}` : null;
 
   const connect = () => {
-    setConnected(true);
-    setAddress("demoUser.sol"); // 模拟钱包地址
-    localStorage.setItem("walletConnected", "true");
+    setShowAuthFlow(true);
   };
 
   const disconnect = () => {
-    setConnected(false);
-    setAddress(null);
-    localStorage.removeItem("walletConnected");
+    handleLogOut();
   };
 
   return (
