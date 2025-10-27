@@ -1,23 +1,36 @@
 # PR Review Checklist (Human + AI)
 
-## Contract & Schema
-- [ ] Contract.md updated (fields, semantics, constraints)
-- [ ] Migrations included; seeds & tests synchronized
-- [ ] Idempotency: UNIQUE(tx_signature, type) intact
+## Contract-First Delivery
+- [ ] `/docs/Contract.md` and `/docs/API.md` updated (fields, semantics, constraints)
+- [ ] Drizzle migrations included; `scripts/seed.ts` + QA docs in sync
+- [ ] Idempotency guard (`UNIQUE(tx_signature, type)`) preserved and tested
 
-## Security & Integrity
-- [ ] WEBHOOK_SECRET validated (HMAC or shared secret)
-- [ ] All external links verify tx signatures (explorer)
+## Single-Command Environment
+- [ ] `pnpm dev:up` passes end-to-end from clean state
+- [ ] `scripts/diagnose.ts` covers new env requirements
+- [ ] Any manual setup encoded in `/scripts` and documented in `docs/Runbook.md`
 
-## Observability
-- [ ] Logs include: ingested_total, duplicates_total, dlq_total, overview_latency_ms_p95
-- [ ] /scripts/diagnose.ts OK; /scripts/seed.ts OK
+## Deterministic Data Baselines
+- [ ] Seeds produce expected metrics (compare against `docs/QA*.md`)
+- [ ] Tests consume shared fixtures (no ad-hoc records)
+- [ ] Release checklist captures data/backfill steps if required
 
-## Performance
-- [ ] Devnet ingest→overview P95 < 3000ms
-- [ ] test:e2e green
+## Test-Gated Releases
+- [ ] `pnpm test:contract` green with new assertions
+- [ ] `pnpm test:idempotency` verifies repeat events leave aggregates unchanged
+- [ ] `pnpm test:e2e` (or focused story suite) passes
 
-## Docs
-- [ ] README updated
-- [ ] Runbook has replay steps & screenshots
-- [ ] Release checklist ticked
+## Blink-First Observability & Performance
+- [ ] Logs include `ingested_total`, `duplicates_total`, `dlq_total`, latency metrics
+- [ ] Endpoint p95 targets met (`/api/overview` < 300 ms, `/api/discover` < 500 ms, `/api/creators/*` < 400 ms)
+- [ ] Monitoring/alerts updated for new fields or failure modes
+
+## Security & Integrations
+- [ ] `WEBHOOK_SECRET` validation intact (HMAC or shared secret)
+- [ ] External Solana links validate transaction signatures
+- [ ] Third-party dependencies reviewed for compatibility with Node 18-20
+
+## Docs & Release
+- [ ] README or feature docs updated when UX/API changes surface
+- [ ] `docs/Runbook.md` describes replay/rollback steps
+- [ ] `docs/Release.md` checklist ticked with owner initials
