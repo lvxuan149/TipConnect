@@ -22,6 +22,34 @@
       "when": 1761331710649,
       "tag": "0002_cloudy_the_renegades",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1761565884909,
+      "tag": "0003_slim_microbe",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1761570318356,
+      "tag": "0004_clammy_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1761573382723,
+      "tag": "0005_reflect_v3",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1761607147000,
+      "tag": "0006_avatar_cover_fields",
+      "breakpoints": true
     }
   ]
 }

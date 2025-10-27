@@ -48,10 +48,11 @@ export async function GET(request: Request) {
         id: story.id,
         title: story.title,
         summary: story.summary,
+        cover_url: story.cover_url,
         host: {
           id: host?.id || story.host_id,
           name: host?.name || 'Unknown',
-          avatar_url: (host as any)?.avatar_url || ""
+          avatar_url: host?.avatar_url || ""
         },
         metrics: {
           total_sol: Number(totalSol.toFixed(2)),

@@ -19,6 +19,10 @@
     "dev:clean": "lsof -ti:3000-3010 | xargs kill -9 || true && pnpm dev"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.917.0",
+    "@dynamic-labs/ethereum": "^4.40.1",
+    "@dynamic-labs/sdk-react-core": "^4.40.1",
+    "@dynamic-labs/solana": "^4.40.1",
     "@neondatabase/serverless": "^0.10.4",
     "drizzle-orm": "^0.36.0",
     "framer-motion": "^12.23.24",
@@ -26,6 +30,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^2.3.6",
+    "viem": "^2.38.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
