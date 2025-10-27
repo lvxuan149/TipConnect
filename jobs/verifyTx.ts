@@ -255,9 +255,8 @@ export async function getVerificationStats() {
   try {
     const stats = await db
       .select({
-        pending: { count: eventVerifications.verification_status },
-        verified: { count: eventVerifications.verification_status },
-        failed: { count: eventVerifications.verification_status },
+        verification_status: eventVerifications.verification_status,
+        count: { count: eventVerifications.verification_status },
       })
       .from(eventVerifications)
       .groupBy(eventVerifications.verification_status);

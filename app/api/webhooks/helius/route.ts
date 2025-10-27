@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { events, eventVerifications } from "@/drizzle/schema";
-import { eq, and } from "drizzle-orm";
-import { verifyWebhookSignature, VerificationErrors } from "@/lib/helius";
-import { crypto } from "crypto";
+import { eq } from "drizzle-orm";
+import { verifyWebhookSignature } from "@/lib/helius";
+import * as crypto from "crypto";
 
 // Webhook payload interface matching Helius format
 interface HeliusWebhookPayload {
