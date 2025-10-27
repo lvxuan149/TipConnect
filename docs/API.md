@@ -94,3 +94,114 @@ Response:
 
 Cache: s-maxage=15, stale-while-revalidate=120
 
+---
+
+## Section: Helius Verification API
+
+### 1️⃣ Endpoint: /api/webhooks/helius
+
+**Purpose:** 接收 Helius 推送的交易事件（Webhook Source）
+
+#### Method: POST
+
+#### Auth: HMAC-SHA256 校验头（**x-helius-signature**）
+
+#### ✅ Request Sample
+
+```json
+{
+  "type": "transaction",
+  "signature": "3hbS2gRjPn1RyGgYYA9m4TkmR1q7XG9c12mRzcxVRU5qQp6A9LDy6Ac",
+  "accountData": {
+    "from": "A1d5sFaAb3bF...d6",
+    "to": "B8eD7cFeEaC1...zQ",
+    "amount": 0.2,
+    "slot": 31782345
+  }
+}
+```
+
+#### ✅ Response Sample
+
+```json
+{
+  "status": "accepted",
+  "message": "transaction stored and verification pending"
+}
+```
+
+#### 🔁 Processing Logic
+
+1. Validate Helius webhook signature
+2. Insert into event_verifications (pending)
+3. Trigger background worker /jobs/verifyTx.ts
+4. Worker fetches transaction detail from Helius API
+5. Update verification_status (verified or failed)
+
+### 2️⃣ Background Worker: /jobs/verifyTx.ts
+
+#### Purpose: **异步拉取交易详情并校验签名**
+
+#### Frequency: **每 5 分钟或由 webhook 触发**
+
+#### Pseudocode
+
+```typescript
+import { getHeliusTx } from "@/lib/helius";
+import { db } from "@/db";
+import { eventVerifications } from "@/db/schema";
+
+export async function verifyTx(signature: string) {
+  const tx = await getHeliusTx(signature);
+  if (!tx) {
+    await db.update(eventVerifications)
+      .set({ verification_status: "failed", error_message: "tx_not_found" })
+      .where(eq(eventVerifications.tx_signature, signature));
+    return;
+  }
+
+  const isValid = verifyTransactionSignature(tx);
+  await db.update(eventVerifications)
+    .set({
+      verification_status: isValid ? "verified" : "failed",
+      verified_at: new Date(),
+      helius_response: tx
+    })
+    .where(eq(eventVerifications.tx_signature, signature));
+}
+```
+
+### 3️⃣ Helius Client: lib/helius.ts
+
+#### Contract
+
+```typescript
+export interface HeliusTxResponse {
+  signature: string;
+  slot: number;
+  amount: number;
+  from: string;
+  to: string;
+  timestamp: number;
+}
+
+export async function getHeliusTx(signature: string): Promise<HeliusTxResponse | null>;
+export function verifyTransactionSignature(tx: HeliusTxResponse): boolean;
+```
+
+### 4️⃣ Environment Variables
+
+```
+HELIUS_API_KEY="your_helius_api_key"
+HELIUS_WEBHOOK_SECRET="your_helius_webhook_secret"
+```
+
+### 5️⃣ Expected QA Baseline
+
+| **测试用例**     | **输入**   | **期望输出**         |
+| ---------------- | ---------- | -------------------- |
+| ✅ valid tx       | 有效签名   | status = verified    |
+| ❌ invalid tx     | 签名不存在 | status = failed      |
+| ⚡ duplicate tx   | 已存在签名 | 忽略并返回 409       |
+| 🔁 webhook replay | 同签名重发 | 幂等处理，无重复写入 |
+

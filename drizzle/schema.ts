@@ -1,4 +1,4 @@
-import { pgTable, text, varchar, numeric, bigint, timestamp, index, uniqueIndex } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, numeric, bigint, timestamp, index, uniqueIndex, uuid, pgEnum, jsonb } from "drizzle-orm/pg-core";
 
 export const stories = pgTable("stories", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -53,6 +53,26 @@ export const storyMetricsDaily = pgTable("story_metrics_daily", {
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow()
 }, (t) => ({
   byStoryDate: uniqueIndex("uniq_story_date").on(t.story_id, t.date),
-  byStory: index("idx_story").on(t.story_id),
-  byDate: index("idx_date").on(t.date)
+  byStory: index("idx_story_metrics_story").on(t.story_id),
+  byDate: index("idx_story_metrics_date").on(t.date)
+}));
+
+// Verification status enum for event_verifications
+export const verificationStatusEnum = pgEnum("verification_status", ["pending", "verified", "failed"]);
+
+// Event verification tracking table
+export const eventVerifications = pgTable("event_verifications", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  tx_signature: varchar("tx_signature", { length: 128 }).notNull().unique(),
+  event_id: varchar("event_id", { length: 72 }).notNull().references(() => events.id, { onDelete: "cascade" }),
+  verification_status: verificationStatusEnum("verification_status").notNull().default("pending"),
+  verified_at: timestamp("verified_at", { withTimezone: true }),
+  helius_response: jsonb("helius_response"),
+  error_message: text("error_message"),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow()
+}, (t) => ({
+  bySignature: uniqueIndex("uniq_verification_tx_signature").on(t.tx_signature),
+  byEvent: index("idx_verification_event").on(t.event_id),
+  byStatus: index("idx_verification_status").on(t.verification_status)
 }));

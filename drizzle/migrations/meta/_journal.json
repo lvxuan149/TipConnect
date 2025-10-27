@@ -22,6 +22,13 @@
       "when": 1761331710649,
       "tag": "0002_cloudy_the_renegades",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1761585884935,
+      "tag": "0003_lumpy_gateway",
+      "breakpoints": true
     }
   ]
 }

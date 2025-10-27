@@ -1,5 +1,5 @@
 import { db } from "../lib/db";
-import { events, hosts, stories } from "../drizzle/schema";
+import { events, hosts, stories, eventVerifications } from "../drizzle/schema";
 
 // Sample data for creators
 const CREATORS = [
@@ -74,6 +74,73 @@ const EVENTS = [
   { tx_signature: "tx_eve_share_1", type: "share", signer: "user16", receiver: "Eve", amount: "0", story_id: "story-eve-1", timestamp: Date.now() - 5000000 }
 ];
 
+// Sample verification data for testing different states
+const EVENT_VERIFICATIONS = [
+  // Verified transactions (should match some events above)
+  {
+    id: "verify-alice-tip-1",
+    tx_signature: "tx_alice_tip_1",
+    event_id: "1", // Will be updated dynamically
+    verification_status: "verified" as const,
+    verified_at: new Date(Date.now() - 86400000),
+    helius_response: {
+      signature: "tx_alice_tip_1",
+      slot: 12345678,
+      amount: 2.5,
+      from: "user1",
+      to: "Alice",
+      timestamp: Date.now() - 86400000,
+      source: "helius-rpc"
+    },
+    error_message: null,
+    created_at: new Date(Date.now() - 86400000),
+    updated_at: new Date(Date.now() - 86400000)
+  },
+  {
+    id: "verify-bob-tip-1",
+    tx_signature: "tx_bob_tip_1",
+    event_id: "2", // Will be updated dynamically
+    verification_status: "verified" as const,
+    verified_at: new Date(Date.now() - 48000000),
+    helius_response: {
+      signature: "tx_bob_tip_1",
+      slot: 12345679,
+      amount: 1.5,
+      from: "user5",
+      to: "Bob",
+      timestamp: Date.now() - 48000000,
+      source: "helius-rpc"
+    },
+    error_message: null,
+    created_at: new Date(Date.now() - 48000000),
+    updated_at: new Date(Date.now() - 48000000)
+  },
+  // Pending verification
+  {
+    id: "verify-carol-tip-1",
+    tx_signature: "tx_carol_tip_1",
+    event_id: "3", // Will be updated dynamically
+    verification_status: "pending" as const,
+    verified_at: null,
+    helius_response: null,
+    error_message: null,
+    created_at: new Date(Date.now() - 18000000),
+    updated_at: new Date(Date.now() - 18000000)
+  },
+  // Failed verification
+  {
+    id: "verify-failed-tx",
+    tx_signature: "tx_invalid_signature",
+    event_id: "4", // Will be updated dynamically
+    verification_status: "failed" as const,
+    verified_at: null,
+    helius_response: null,
+    error_message: "tx_not_found",
+    created_at: new Date(Date.now() - 72000000),
+    updated_at: new Date(Date.now() - 72000000)
+  }
+];
+
 async function ensureBasics() {
   // Insert creators
   for (const creator of CREATORS) {
@@ -102,15 +169,32 @@ async function main() {
   await ensureBasics();
 
   // Insert events
+  const insertedEvents = [];
   for (const event of EVENTS) {
     try {
-      await db.insert(events).values(event).onConflictDoNothing();
+      const result = await db.insert(events).values(event).onConflictDoNothing().returning();
+      if (result.length > 0) {
+        insertedEvents.push(result[0]);
+      }
     } catch {}
   }
 
-  console.log("Seed OK. Sample creators, stories, and events inserted.");
+  // Insert verification records with proper event_id mapping
+  for (let i = 0; i < EVENT_VERIFICATIONS.length && i < insertedEvents.length; i++) {
+    const verification = { ...EVENT_VERIFICATIONS[i] };
+    verification.event_id = insertedEvents[i].id;
+
+    try {
+      await db.insert(eventVerifications).values(verification).onConflictDoNothing();
+    } catch (error) {
+      console.error(`Error inserting verification for ${verification.tx_signature}:`, error);
+    }
+  }
+
+  console.log("Seed OK. Sample creators, stories, events, and verifications inserted.");
   console.log("Creators:", CREATORS.length);
   console.log("Stories:", STORIES.length);
   console.log("Events:", EVENTS.length);
+  console.log("Event Verifications:", EVENT_VERIFICATIONS.length);
 }
 main().catch((e)=>{console.error(e); process.exit(1)});
